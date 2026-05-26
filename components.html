@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Bungee&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="javascript/script.js" defer></script>
+    <title>FORGE PC Components</title>
+</head>
+<body>
+    <header>
+        <div class="containerHeader">
+            <h1 class="titleHeader"><a href="index.html">FORGE PC</a></h1>
+                <nav class="navBalkHeader">
+                    <ul class="navListHeader">
+                        <li class="navListItemHeader"><a  href="#">system</a></li>
+                        <li class="navListItemHeader"><a style="color: rgb(255, 157, 47); font-size: 16px;" href="components.html">components</a></li>
+                        <li class="navListItemHeader"><a href="#">configurator</a></li>
+                        <li class="navListItemHeader"><a href="#">support</a></li>
+                    </ul>
+                </nav>
+                <div class="iconsHeader">
+                    <a href="#"><img 
+                    src="photos/shopping-cart.png" alt="pictogram for a shopping cart" class="cartIcon"></a>
+                    <a href="#"><img 
+                    src="photos/user.png" 
+                    alt="pictogram for a user profile" class="userIcon"></a>
+                </div>
+        </div>
+    </header>
+    <section class="hardwearFilterCategoryContainer">
+        <nav class="">
+            <button type="button" id="buttonHardWear"> ALL HARDWARE</button>
+            <button type="button" id="buttonProcessors"> PROCESSORS (CPU)</button>
+            <button type="button" id="buttonGrapicCards"> GRAPHICS CARDS (GPU)</button>
+            <button type="button" id="buttonMemory"> MEMORY(RAM)</button>
+            <button type="button" id="buttonMotherboards"> MOTHERBOARDS</button>
+            <button type="button" id="buttonStorage"> STORAGE</button>
+        </nav>
+    </section>
+    <section class="mainPageComponents">
+        <div class="catalogBalk">
+            <h3>FILTERS</h3>
+        </div>
+        <div class="componentsContainer">
+            <div class="filterSidebarComponents">
+                <div class="price-filter">
+                    <p class="componentsP">PRICE RANGE </p>
+                    <input 
+                        type="range" 
+                        id="price" 
+                        min="1" 
+                        max="5000" 
+                        value="4000" 
+                        step="50">
+
+                    <div class="price-values">
+                        <span>&#8364;1</span>
+                        <span>&#8364;<span id="priceValue">4000</span></span>
+                    </div>
+                </div>
+                    <div class="brandFilter">
+                        <p class="componentsP">BRAND</p>
+                        
+                        <label class="customCheckbox">
+                            <input type="checkbox" checked>
+                            <span class="checkmark">
+                            </span>
+                            Forge Titanium
+                        </label>
+
+                        <label class="customCheckbox">
+                            <input type="checkbox">
+                            <span class="checkmark">
+                            </span>
+                            flux engeneering
+                        </label>
+
+                        <label class="customCheckbox">
+                            <input type="checkbox">
+                            <span class="checkmark">
+                            </span>
+                            Precision core
+                        </label>
+                    </div>
+                    <p class="componentsP2">PERFORMANCE TIER</p>
+                    <div class="componentsTierContainer">
+                        
+
+                        <button id="buttonEnthusiast" class="gridItemButton">
+                            ENTHUSIAST
+                        </button>
+                        <button id="buttonProffesional" class="gridItemButton">
+                            PROFFESIONAL    
+                        </button>
+                        <button id="buttonStudio"
+                        class="gridItemButton">
+                            STUDIO
+                        </button>
+                        <button id="buttonElite" class="gridItemButton">
+                            ELITE
+                        </button>
+                    </div>
+            </div>
+            <div class="productGridComponents">
+                <div class="productGridItem"><a href="product.html">
+                    <div>
+                        <img src="photos/rtx4090.jpg" alt="RTX 4090">
+                    </div>
+                    <div>
+                        <p class="productBrand">forge TITANIUM</p>
+                        <h3> GeForce RTX 4090</h3>
+                        <p class="productExtraInfo">24g ddrGx **  450W DPT</p>
+                        <hr>
+                    </div>
+                    <div class="productPrice">
+                        <p>&#8364;2,577.99</p>
+                        <a href="#"><img src="photos/add-to-cart.png" alt="add to shopping cart"></a>
+                    </div>    
+                    </a>
+                </div>
+
+                <div class="productGridItem"><a href="product.html">
+                    <div>
+                        <img src="photos/rtx4090.jpg" alt="RTX 4090">
+                    </div>
+                    <div>
+                        <p class="productBrand">forge TITANIUM </p>
+                        <h3> GeForce RTX 4090</h3>
+                        <p class="productExtraInfo">24g ddrGx **  450W DPT</p>
+                        <hr>
+                    </div>
+                    <div class="productPrice">
+                        <p>&#8364;2,577.99</p>
+                        <img src="photos/add-to-cart.png" alt="add to shopping cart">
+                    </div>    
+                    </a>
+                </div>
+
+                <div class="productGridItem"><a href="product.html">
+                    <div>
+                        <img src="photos/rtx4090.jpg" alt="RTX 4090">
+                    </div>
+                    <div>
+                        <p class="productBrand">forge TITANIUM</p>
+                        <h3> GeForce RTX 4090</h3>
+                        <p class="productExtraInfo">24g ddrGx **  450W DPT</p>
+                        <hr>
+                    </div>
+                    <div class="productPrice">
+                        <p>&#8364;2,577.99</p>
+                        <img src="photos/add-to-cart.png" alt="add to shopping cart">
+                    </div>    
+                    </a>
+                </div>
+
+                <div class="productGridItem"><a href="product.html">
+                    <div>
+                        <img src="photos/rtx4090.jpg" alt="RTX 4090">
+                    </div>
+                    <div>
+                        <p class="productBrand">forge TITANIUM</p>
+                        <h3> GeForce RTX 4090</h3>
+                        <p class="productExtraInfo">24g ddrGx **  450W DPT</p>
+                        <hr>
+                    </div>
+                    <div class="productPrice">
+                        <p>&#8364;2,577.99</p>
+                        <img src="photos/add-to-cart.png" alt="add to shopping cart">
+                    </div>    
+                    </a>
+                </div>
+
+        </div>
+    </section>
+    <footer>
+        <div class="gridContainerFooter">
+            <div class="titleFooter">
+                <h2>Forge PC</h2>
+                <p class="titleFooterExtraText">engineerd for absolute <br> performance and <br> uncompromising performance</p>
+            </div>
+            <div class="quickLinksFooter">
+                 <p>Quick links</p>
+                 <ul>
+                    <li><a href="#">systems</a></li>
+                    <li><a href="components.html">components</a></li>
+                    <li><a href="#">configuration</a></li>
+                    <li><a href="#">support</a></li>
+                 </ul>
+            </div>
+            <div class="policiesFooter">
+                <p>policies</p>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Warranty</a></li>
+                </ul>
+            </div>
+            <div class="socials">
+                <p>socials</p>
+                <!--nothing yet-->
+            </div>
+        </div>
+    </footer>   
+</body>
+</html>
