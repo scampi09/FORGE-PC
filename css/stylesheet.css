@@ -608,13 +608,13 @@ input[type="range"]::-moz-range-thumb {
 
 .ProductContainerLeft{
     width: 60%;
-    border: 3px solid green;
 }
 
 .productContainerRight{
     width: 40%;
     padding-top: 50px;
     font-family: 'inter';
+    padding-left: 50px;
 }
 
 .productBrandExtra{
@@ -662,9 +662,6 @@ input[type="range"]::-moz-range-thumb {
 
 /* ============ LEFT SIDE OF THE PRODUCTS ============*/
 
-.ProductContainerLeft{
-}
-
 .ProductContainerLeftImg{
     width: 80%;
     margin: auto;
@@ -677,3 +674,36 @@ input[type="range"]::-moz-range-thumb {
 .ProductContainerLeftImg img{
     border-radius: 10px;
 }
+
+.productAddToCartButton{
+    width: 80%;
+    background-color: var(--primary-Text-Color);
+    padding-block: 15px;
+    border: none;
+    border-radius: 3px;
+    color: rgb(35, 35, 35);
+    font-family: 'inter';
+    font-size: 15px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.productFinanceButton{
+    width: 80%;
+    background-color: var(--background-color-light);
+    padding-block: 15px;
+    border: 1px solid rgb(53, 53, 53);
+    border-radius: 3px;
+    color: rgb(225, 225, 225);
+    font-family: 'inter';
+    font-size: 15px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.productFinanceButton:hover{
+    border-color: var(--primary-Text-Color);
+    color: var(--primary-Text-Color);
+    transition: 0.3s;
+}
+

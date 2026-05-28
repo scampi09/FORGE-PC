@@ -9,10 +9,11 @@ const buttonMotherboards = document.querySelector("#buttonMotherboards");
 const buttonStorage = document.querySelector("#buttonStorage");
 const price = document.querySelector("#price");
 const priceValue = document.querySelector("#priceValue");
-const buttonEnthusiast = document.querySelector("#buttonEnthusiast")
-const buttonProffesional = document.querySelector("#buttonProffesional")
-const buttonStudio = document.querySelector("#buttonStudio")
-const buttonElite = document.querySelector("#buttonElite")
+const buttonEnthusiast = document.querySelector("#buttonEnthusiast");
+const buttonProffesional = document.querySelector("#buttonProffesional");
+const buttonStudio = document.querySelector("#buttonStudio");
+const buttonElite = document.querySelector("#buttonElite");
+const productAddToCartButton = document.querySelector("#productAddToCartButton");
 
 
 
@@ -126,3 +127,11 @@ buttonElite.addEventListener("click", function() {
         buttonElite.classList.add("active")  
     }
 } ) 
+
+productAddToCartButton.addEventListener("mousedown", function() {
+    productAddToCartButton.style.backgroundColor = "rgb(196, 109, 11)";
+});
+
+productAddToCartButton.addEventListener("mouseup", function() {
+    productAddToCartButton.style.backgroundColor = "rgb(255, 157, 47)";
+});
