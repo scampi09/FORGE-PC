@@ -535,6 +535,7 @@ input[type="range"]::-moz-range-thumb {
 
 .productGridItem img{
     padding: 10px;
+    border-radius: 15px;
 }
 
 .productGridItem a{
@@ -601,7 +602,7 @@ input[type="range"]::-moz-range-thumb {
 /* FOR THE SINGLE PRODUCT PAGE */
 
 .productPage{
-    background-color: var(--background-color-dark);
+    background-color: var(--background-color-light);
     display: flex;
 }
 
@@ -610,18 +611,18 @@ input[type="range"]::-moz-range-thumb {
     border: 3px solid green;
 }
 
-.ProductContainerRight{
+.productContainerRight{
     width: 40%;
     padding-top: 50px;
     font-family: 'inter';
 }
 
-.ProductContainerRight p{
+.productBrandExtra{
     color: var(--primary-Text-Color);
     font-size: 12px;
 }
 
-.ProductContainerRight h3{
+.productContainerRight h3{
     color: rgb(225, 225, 225);
     font-size: 40px;
 }
@@ -630,5 +631,49 @@ input[type="range"]::-moz-range-thumb {
     font-size: 14px;
     margin-top: 20px;
     margin-bottom: 30px;
-    color: #9b9b9b;
+    color: var(--secundary-text-color) ;
+}
+
+.productDescriptionPrijsContainer{
+    display: flex;
+    gap: 5px;
+    font-family: 'inter';
+}
+
+.productDescriptionPrijs{
+   font-size: 40px; 
+   color: rgb(255, 255, 255); 
+}
+
+.productDescriptionDiscountedPrice{
+    font-size: 15px;
+    margin-top: 30px;
+    margin-left: 10px;
+    color: var(--secundary-text-color);
+    text-decoration: line-through;
+}
+
+.productDescriptionStock{
+    color: var(--primary-Text-Color);
+    display: block;
+    margin-top: 10px;
+    font-family: 'inter';
+}
+
+/* ============ LEFT SIDE OF THE PRODUCTS ============*/
+
+.ProductContainerLeft{
+}
+
+.ProductContainerLeftImg{
+    width: 80%;
+    margin: auto;
+    margin-top: 49px;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid rgb(78, 78, 78);
+}
+
+.ProductContainerLeftImg img{
+    border-radius: 10px;
 }
