@@ -108,6 +108,7 @@ header {
     background-image: url("/photos/heroBackground.png");
     background-size: contain;
     background-position: center;
+    background-color: orange;
     background-repeat: no-repeat;
     background-color: var(--background-color-dark);
     border-top: 2px solid rgb(53, 53, 53);
@@ -597,31 +598,37 @@ input[type="range"]::-moz-range-thumb {
 }
 
 
-/* FOR THE PRODUCT PAGE */
+/* FOR THE SINGLE PRODUCT PAGE */
 
-.productHero{
+.productPage{
     background-color: var(--background-color-dark);
     display: flex;
 }
 
-.ProductHeroContainerLeft{
+.ProductContainerLeft{
     width: 60%;
     border: 3px solid green;
 }
 
-.ProductHeroContainerRight{
+.ProductContainerRight{
     width: 40%;
-    border: 3px solid purple;
     padding-top: 50px;
     font-family: 'inter';
 }
 
-.ProductHeroContainerRight p{
+.ProductContainerRight p{
     color: var(--primary-Text-Color);
     font-size: 12px;
 }
 
-.ProductHeroContainerRight h3{
+.ProductContainerRight h3{
     color: rgb(225, 225, 225);
     font-size: 40px;
+}
+    
+.productDescription{
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    color: #9b9b9b;
 }
