@@ -105,7 +105,7 @@ header {
 
 .hero {
     height: 100vh;
-    background-image: url("/photos/heroBackground.png");
+    background-image: url("../photos/heroBackground.png");
     background-size: contain;
     background-position: center;
     background-color: orange;

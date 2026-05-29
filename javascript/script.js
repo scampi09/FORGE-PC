@@ -135,3 +135,6 @@ productAddToCartButton.addEventListener("mousedown", function() {
 productAddToCartButton.addEventListener("mouseup", function() {
     productAddToCartButton.style.backgroundColor = "rgb(255, 157, 47)";
 });
+
+const producten = await runQuery("SELECT * FROM product");
+console.log(producten);
