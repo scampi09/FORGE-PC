@@ -707,3 +707,451 @@ input[type="range"]::-moz-range-thumb {
     transition: 0.3s;
 }
 
+
+/* ============================================================
+   RESPONSIVE PHONE CSS ADDED BY CODEX
+   Everything below this comment is added to make the project
+   work better on phones without changing the HTML or JavaScript.
+   ============================================================ */
+
+@media (max-width: 768px) {
+    html,
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    .hero,
+    .featuredPage,
+    .mainPageComponents,
+    .productPage,
+    .hardwearFilterCategoryContainer,
+    footer {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .containerHeader,
+    .navListHeader,
+    .infoHeroContianer,
+    .infoHero,
+    .featuredPhotoContainer,
+    .componentsContainer,
+    .filterSidebarComponents,
+    .productGridComponents,
+    .productGridItem,
+    .productPrice,
+    .productContainerRight {
+        min-width: 0;
+    }
+
+    .titleHero,
+    .extraTextHero,
+    .featuredPhotoLeft h3,
+    .featuredPhotoLeft p,
+    .featuredPhotoRight h3,
+    .featuredPhotoRight p,
+    .productGridItem h3,
+    .productExtraInfo,
+    .productPrice p,
+    .productContainerRight h3,
+    .productDescription {
+        overflow-wrap: break-word;
+    }
+
+    /* HEADER */
+    .containerHeader {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        padding: 18px 20px;
+        text-align: center;
+    }
+
+    .titleHeader {
+        font-size: 24px;
+    }
+
+    .navBalkHeader {
+        width: 100%;
+    }
+
+    .navListHeader {
+        flex-wrap: wrap;
+        gap: 12px 18px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .navListItemHeader a {
+        font-size: 13px;
+    }
+
+    .iconsHeader {
+        justify-content: center;
+    }
+
+    /* HOME HERO */
+    .hero {
+        position: relative;
+        min-height: 620px;
+        height: auto;
+        background-size: cover;
+        background-position: center right;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.86)
+        );
+        z-index: 0;
+    }
+
+    .infoHeroContianer {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        min-width: 0;
+        margin-left: 0;
+        padding: 72px 20px 48px;
+        align-items: flex-end;
+    }
+
+    .infoHero {
+        width: 100%;
+        max-width: calc(100vw - 40px);
+        min-width: 0;
+        height: auto;
+        margin-top: 0;
+    }
+
+    .titleHeroContainer {
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+
+    .extraTextHero {
+        width: 100%;
+        max-width: calc(100vw - 40px);
+        min-width: 0;
+        font-size: 14px;
+        line-height: 1.7;
+        overflow-wrap: anywhere;
+    }
+
+    .buttonsHeroContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin-top: 32px;
+        width: 100%;
+        max-width: 340px;
+    }
+
+    .buttonHeroLeft,
+    .buttonHeroRight {
+        display: block;
+        width: 100%;
+        margin-right: 0;
+        padding: 14px 18px;
+        text-align: center;
+    }
+
+    /* FEATURED BUILDS */
+    .featuredTextTitle {
+        margin: 24px 20px 18px;
+        font-size: 19px;
+    }
+
+    .featuredTextExtra {
+        flex-direction: column;
+        gap: 10px;
+        line-height: 1.6;
+    }
+
+    .featuredTextLink a {
+        margin-right: 0;
+    }
+
+    .featuredPhotoContainer {
+        flex-direction: column;
+        margin-inline: 20px;
+        margin-bottom: 40px;
+    }
+
+    .featuredPhotoLeft,
+    .featuredPhotoRight {
+        width: 100%;
+        min-height: 320px;
+        overflow: hidden;
+    }
+
+    .featuredPhotoContainer img {
+        display: block;
+        min-height: 320px;
+    }
+
+    .featuredPhotoLeft h3,
+    .featuredPhotoRight h3 {
+        left: 20px;
+        right: 20px;
+        top: auto;
+        bottom: 82px;
+        font-size: 22px;
+    }
+
+    .featuredPhotoLeft p,
+    .featuredPhotoRight p {
+        left: 20px;
+        right: 20px;
+        bottom: 24px;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .featuredPhotoLeft p br {
+        display: none;
+    }
+
+    /* FOOTER */
+    .gridContainerFooter {
+        width: calc(100% - 40px);
+        grid-template-columns: 1fr 1fr;
+        gap: 28px 18px;
+        padding-top: 36px;
+    }
+
+    .gridContainerFooter h2 {
+        font-size: 30px;
+    }
+
+    /* COMPONENTS PAGE */
+    .hardwearFilterCategoryContainer {
+        padding: 18px 20px;
+    }
+
+    .hardwearFilterCategoryContainer nav {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .hardwearFilterCategoryContainer button {
+        flex: 1 1 145px;
+        padding-inline: 12px;
+        min-height: 38px;
+    }
+
+    .catalogBalk h3 {
+        font-size: 24px;
+        padding: 20px;
+    }
+
+    .componentsContainer {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .filterSidebarComponents {
+        width: calc(100% - 40px);
+        margin: 0 20px;
+    }
+
+    .productGridComponents {
+        width: calc(100% - 40px);
+        margin: 0 20px 36px;
+    }
+
+    .price-filter,
+    .brandFilter,
+    .componentsTierContainer {
+        width: 100%;
+        max-width: none;
+        min-width: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .price-values {
+        width: 100%;
+    }
+
+    .price-values span:last-child {
+        margin-left: auto;
+    }
+
+    .componentsP2 {
+        padding-left: 0;
+    }
+
+    .componentsTierContainer {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .productGridComponents {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 0;
+    }
+
+    .productGridItem {
+        width: 100%;
+        min-width: 0;
+        overflow: hidden;
+        margin-top: 0;
+    }
+
+    .productGridItem a {
+        min-width: 0;
+    }
+
+    .productGridItem h3 {
+        font-size: 23px;
+        padding-right: 18px;
+    }
+
+    .productPrice p {
+        flex: 1 1 auto;
+        font-size: 20px;
+        min-width: 0;
+        margin-left: 0;
+        white-space: nowrap; /* zorgt dat text niet afbreekt en gwne lengte blijft*/
+    }
+
+    .productPrice {
+        min-width: 0;
+        padding: 0 20px;
+        gap: 12px;
+    }
+
+    .productPrice img {
+        width: 38px;
+        height: 38px;
+        margin-right: 0;
+        padding: 8px;
+        object-fit: contain;
+    }
+
+    .productPrice a {
+        display: flex;
+        flex: 0 0 38px;
+        justify-content: center;
+    }
+
+    /* SINGLE PRODUCT PAGE */
+    .productPage {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .ProductContainerLeft,
+    .productContainerRight {
+        width: 100%;
+    }
+
+    .ProductContainerLeftImg {
+        width: calc(100% - 40px);
+        margin-top: 28px;
+        padding: 12px;
+    }
+
+    .productContainerRight {
+        padding: 28px 20px 44px;
+    }
+
+    .productContainerRight h3 {
+        font-size: 31px;
+    }
+
+    .productDescription {
+        overflow-wrap: break-word;
+    }
+
+    .productDescriptionPrijsContainer {
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 8px 12px;
+    }
+
+    .productDescriptionPrijs {
+        font-size: 32px;
+    }
+
+    .productDescriptionDiscountedPrice {
+        margin-top: 0;
+        margin-left: 0;
+    }
+
+    .productAddToCartButton,
+    .productFinanceButton {
+        width: 100%;
+        margin-top: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .containerHeader {
+        padding-inline: 16px;
+    }
+
+    .navListHeader {
+        gap: 10px 14px;
+    }
+
+    .hero {
+        min-height: 600px;
+        background-position: 68% center;
+    }
+
+    .titleHeroContainer {
+        font-size: 15px;
+    }
+
+    .promoTextHero {
+        font-size: 11px;
+    }
+
+    .featuredPhotoLeft,
+    .featuredPhotoRight,
+    .featuredPhotoContainer img {
+        min-height: 280px;
+    }
+
+    .gridContainerFooter {
+        grid-template-columns: 1fr;
+    }
+
+    .hardwearFilterCategoryContainer button {
+        flex-basis: 100%;
+    }
+
+    .componentsTierContainer {
+        grid-template-columns: 1fr;
+    }
+
+    .productGridItem h3 {
+        font-size: 21px;
+    }
+
+    .productPrice {
+        gap: 12px;
+    }
+
+    .productContainerRight h3 {
+        font-size: 27px;
+    }
+
+    .productDescriptionPrijs {
+        font-size: 28px;
+    }
+}
+
