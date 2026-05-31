@@ -10,10 +10,18 @@
 
 
 html {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: rgb(0, 0, 0);
+    overscroll-behavior: none;
 }
+
+.body{
+    background-color: rgb(0, 0, 0);
+    overscroll-behavior: none;
+}
+
 *, *:before, *:after {
     -webkit-box-sizing: inherit;
     -moz-box-sizing: inherit;
@@ -719,8 +727,8 @@ input[type="range"]::-moz-range-thumb {
     body {
         width: 100%;
         overflow-x: hidden;
-        background-color: rgb(19, 19, 19); /* zelfde als jouw pagina achtergrond */
-        overscroll-behavior: none; /* voorkomt de bounce */
+        background-color: rgb(0, 0, 0);
+        overscroll-behavior: none;
     }
 
     img {
