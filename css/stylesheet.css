@@ -384,6 +384,7 @@ footer{
 
 .componentsContainer{
     display: flex;
+    border: 1px solid purple;
 }
 
 .filterSidebarComponents{
@@ -393,8 +394,8 @@ footer{
 
 /* PRICE SLIDER */
 .price-filter {
-    width: 310px;
     padding: 20px;
+    border: 1px solid orange;
 }
 
 .price-values {
@@ -450,7 +451,7 @@ input[type="range"]::-moz-range-thumb {
   gap: 18px;
   background: var(--background-color-dark);
   padding: 20px;
-  width: 260px;
+  border: 1px solid green;
 }
 
 .customCheckbox {
@@ -486,8 +487,8 @@ input[type="range"]::-moz-range-thumb {
 
 
 .componentsTierContainer{
-    width: 310px;
     padding: 20px;
+    border: 1px solid blue  ;
 }
 
 .componentsP2{
@@ -495,6 +496,7 @@ input[type="range"]::-moz-range-thumb {
     font-size: 12px;
     padding-left: 20px;
     padding-top: 20px;
+
 }
 
 .componentsTierContainer{
