@@ -719,6 +719,8 @@ input[type="range"]::-moz-range-thumb {
     body {
         width: 100%;
         overflow-x: hidden;
+        background-color: rgb(19, 19, 19); /* zelfde als jouw pagina achtergrond */
+        overscroll-behavior: none; /* voorkomt de bounce */
     }
 
     img {
