@@ -12,6 +12,90 @@ const buttonStudio = document.querySelector("#buttonStudio");
 const buttonElite = document.querySelector("#buttonElite");
 const productAddToCartButton = document.querySelector("#productAddToCartButton");
 
+function getProductValue(product, keys, fallback) {
+    for (const key of keys) {
+        if (product[key] !== undefined && product[key] !== null && product[key] !== "") {
+            return product[key];
+        }
+    }
+
+    return fallback;
+}
+
+function formatEuro(value) {
+    const number = Number(value);
+
+    if (Number.isNaN(number)) {
+        return "\u20AC0,00";
+    }
+
+    return number.toLocaleString("nl-BE", {
+        style: "currency",
+        currency: "EUR"
+    });
+}
+
+async function laadProductDetail() {
+    const productImage = document.querySelector("#productImage");
+    const productBrandExtra = document.querySelector("#productBrandExtra");
+    const productTitle = document.querySelector("#productTitle");
+    const productDescription = document.querySelector("#productDescription");
+    const productPrice = document.querySelector("#productPrice");
+    const productOldPrice = document.querySelector("#productOldPrice");
+    const productStock = document.querySelector("#productStock");
+
+    if (!productImage || !productBrandExtra || !productTitle || !productDescription || !productPrice || typeof runQuery !== "function") {
+        return;
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const productId = Number(params.get("id"));
+
+    if (Number.isNaN(productId) || productId <= 0) {
+        return;
+    }
+
+    const producten = await runQuery(`SELECT * FROM producten WHERE productID = ${productId} LIMIT 1`);
+
+    if (!Array.isArray(producten) || producten.length === 0) {
+        return;
+    }
+
+    const product = producten[0];
+    const naam = getProductValue(product, ["naam", "name"], "Onbekend product");
+    const afbeelding = getProductValue(product, ["afbeelding", "image"], "photos/rtx4090.jpg");
+    const merkWaarde = getProductValue(product, ["merkNaam", "merk", "brand"], "FORGE PC");
+    const merk = typeof merkWaarde === "string" ? merkWaarde : "FORGE PC";
+    const omschrijving = getProductValue(product, ["omschrijving", "description", "korteInfo", "korte_info"], productDescription.textContent.trim());
+    const prijs = getProductValue(product, ["prijs", "price"], 0);
+    const oudePrijs = getProductValue(product, ["oudePrijs", "oude_prijs", "oldPrice"], null);
+    const status = getProductValue(product, ["status"], "");
+
+    productImage.src = afbeelding;
+    productImage.alt = naam;
+    productBrandExtra.textContent = merk;
+    productTitle.textContent = naam;
+    productDescription.textContent = omschrijving;
+    productPrice.textContent = formatEuro(prijs);
+
+    if (productOldPrice) {
+        if (oudePrijs !== null && oudePrijs !== "") {
+            productOldPrice.textContent = formatEuro(oudePrijs);
+            productOldPrice.hidden = false;
+        } else {
+            productOldPrice.hidden = true;
+        }
+    }
+
+    if (productStock) {
+        productStock.textContent = status ? `\u2022  ${status}` : "";
+    }
+
+    document.title = `${naam} | FORGE PC`;
+}
+
+laadProductDetail();
+
 if (buttonHardWear) {
     buttonHardWear.style.backgroundColor = "rgba(121, 82, 37, 0.50)";
     buttonHardWear.style.color = "rgb(255 157 47)";
@@ -87,7 +171,7 @@ if (buttonStorage) {
     });
 }
 
-// PRICE SLIDER 
+// PRICE SLIDER
 
 if (price && priceValue) {
     price.addEventListener("input", function () {
@@ -149,4 +233,3 @@ if (productAddToCartButton) {
         productAddToCartButton.style.backgroundColor = "rgb(255, 157, 47)";
     });
 }
-

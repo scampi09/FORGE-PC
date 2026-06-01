@@ -8,13 +8,83 @@ const API_URL = "http://localhost/FORGE-PC/api.php";
 // Fallback data: wordt gebruikt als de database/API niet werkt,
 // zodat de pagina toch iets toont.
 const FALLBACK_PRODUCTEN = [
-    { id: 1, naam: "Cola",            prijs: 1.50, categorie_id: 1 },
-    { id: 2, naam: "Water",           prijs: 0.80, categorie_id: 1 },
-    { id: 3, naam: "Sinaasappelsap",  prijs: 2.20, categorie_id: 1 },
-    { id: 4, naam: "Chips",           prijs: 1.95, categorie_id: 2 },
-    { id: 5, naam: "Chocoladereep",   prijs: 1.10, categorie_id: 2 },
-    { id: 6, naam: "Appel",           prijs: 0.45, categorie_id: 3 },
-    { id: 7, naam: "Banaan",          prijs: 0.35, categorie_id: 3 }
+    {
+        id: 1,
+        productID: 1,
+        categorie_id: 2,
+        categorieID: 2,
+        merk: "Forge Titanium",
+        naam: "GeForce Titanium RTX 4090",
+        prijs: 2577.99,
+        afbeelding: "photos/rtx4090.jpg",
+        korteInfo: "24GB GDDR6X - 450W TDP"
+    },
+    {
+        id: 2,
+        productID: 2,
+        categorie_id: 2,
+        categorieID: 2,
+        merk: "Forge Titanium",
+        naam: "GeForce Titanium RTX 4080 Super",
+        prijs: 1199.99,
+        afbeelding: "photos/rtx4090.jpg",
+        korteInfo: "16GB GDDR6X - quiet cooling"
+    },
+    {
+        id: 3,
+        productID: 3,
+        categorie_id: 1,
+        categorieID: 1,
+        merk: "Precision Core",
+        naam: "Precision Core i9-14900K",
+        prijs: 599.99,
+        afbeelding: "photos/ChatGPT Image 10 mei 2026, 11_25_58.png",
+        korteInfo: "24 cores - unlocked performance"
+    },
+    {
+        id: 4,
+        productID: 4,
+        categorie_id: 1,
+        categorieID: 1,
+        merk: "Precision Core",
+        naam: "Precision Core Ryzen 7 7800X3D",
+        prijs: 379.99,
+        afbeelding: "photos/ChatGPT Image 10 mei 2026, 11_25_58.png",
+        korteInfo: "8 cores - 3D cache"
+    },
+    {
+        id: 5,
+        productID: 5,
+        categorie_id: 3,
+        categorieID: 3,
+        merk: "Flux Engineering",
+        naam: "Flux DDR5 32GB 6000MHz",
+        prijs: 129.99,
+        afbeelding: "photos/ChatGPT Image 10 mei 2026, 12_23_08.png",
+        korteInfo: "32GB kit - low latency"
+    },
+    {
+        id: 6,
+        productID: 6,
+        categorie_id: 4,
+        categorieID: 4,
+        merk: "Flux Engineering",
+        naam: "Flux Z790 Creator Motherboard",
+        prijs: 289.99,
+        afbeelding: "photos/ChatGPT Image 10 mei 2026, 12_30_35.png",
+        korteInfo: "Z790 - Wi-Fi - PCIe 5.0"
+    },
+    {
+        id: 7,
+        productID: 7,
+        categorie_id: 5,
+        categorieID: 5,
+        merk: "Precision Core",
+        naam: "Precision NVMe 2TB SSD",
+        prijs: 149.99,
+        afbeelding: "photos/ChatGPT Image 10 mei 2026, 12_23_08.png",
+        korteInfo: "2TB - PCIe 4.0"
+    }
 ];
 
 // runQuery: stuurt een SQL-string naar de API en geeft het resultaat terug.
