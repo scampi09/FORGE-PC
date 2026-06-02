@@ -588,6 +588,7 @@ input[type="range"]::-moz-range-thumb {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    margin-top: auto;
 }
 
 .productPrice p{
@@ -934,15 +935,17 @@ input[type="range"]::-moz-range-thumb {
 
     /* FOOTER */
     .gridContainerFooter {
-        width: calc(100% - 40px);
         grid-template-columns: 1fr 1fr;
         gap: 28px 18px;
         padding-top: 36px;
+        display: flex;
     }
 
     .gridContainerFooter h2 {
         font-size: 30px;
     }
+
+
 
     /* COMPONENTS PAGE */
     .hardwearFilterCategoryContainer {
@@ -1135,8 +1138,14 @@ input[type="range"]::-moz-range-thumb {
         min-height: 280px;
     }
 
-    .gridContainerFooter {
-        grid-template-columns: 1fr;
+
+    .gridContainerFooter{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .titleFooter{
+        grid-column: span 4;
     }
 
     .hardwearFilterCategoryContainer button {
