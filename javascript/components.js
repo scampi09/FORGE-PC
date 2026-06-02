@@ -33,7 +33,7 @@ function renderProductCards(producten) {
         return;
     }
 
-    grid.innerHTML = producten.map(product => {
+    grid.innerHTML = producten.map(product => { 
         const productID = getProductValue(product, ["productID", "id"], "");
         const naam = getProductValue(product, ["naam", "name"], "Onbekend product");
         const prijs = getProductValue(product, ["prijs", "price"], 0);

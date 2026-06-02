@@ -537,6 +537,7 @@ input[type="range"]::-moz-range-thumb {
     width: 95%; 
     background-color: #1c1b1b;
     margin-top: 10px;
+    min-height: 8rem;
 }
 
 .productGridItem img{
