@@ -66,7 +66,7 @@ function renderProductCards(producten) {
 }
 
 async function laadProducten() {
-    const producten = await runQuery("SELECT * FROM producten ORDER BY naam ASC");
+    const producten = await runQuery("SELECT * FROM producten ");
     renderProductCards(producten);
 }
 

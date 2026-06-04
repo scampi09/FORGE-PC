@@ -1,7 +1,14 @@
 const API_URL = "http://localhost/FORGE-PC/api.php";
 
 async function runQuery(sql) {
-    const response = await fetch(API_URL + "?sql=" + encodeURIComponent(sql));
+    const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: "sql=" + encodeURIComponent(sql)
+    });
+
     const result = await response.json();
 
     if (result.success) {

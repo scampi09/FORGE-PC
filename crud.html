@@ -11,7 +11,7 @@
 
     <h2>Product toevoegen of aanpassen</h2>
 
-    <form>
+    <form id="productForm">
         <label for="productID">productID:</label>
         <input type="number" id="productID" name="productID">
         <br><br>
@@ -53,12 +53,30 @@
         <input type="number" id="voorraad" name="voorraad">
         <br><br>
 
-        <button type="submit">Toevoegen</button>
-        <button type="submit">Aanpassen</button>
-        <button type="submit">Verwijderen</button>
-        <button type="reset">Leegmaken</button>
+        <button type="button" id="btnToevoegen">Toevoegen</button>
+        <button type="button" id="btnAanpassen">Aanpassen</button>
+        <button type="button" id="btnVerwijderen">Verwijderen</button>
+        <button type="reset" id="btnLeegmaken">Leegmaken</button>
     </form>
 
     <h2>Producten bekijken</h2>
+
+    <table border="1" id="productenTabel">
+        <thead>
+            <tr>
+                <th>productID</th>
+                <th>categorieID</th>
+                <th>merk</th>
+                <th>naam</th>
+                <th>prijs</th>
+                <th>afbeelding</th>
+                <th>korteInfo</th>
+                <th>omschrijving</th>
+                <th>tier</th>
+                <th>voorraad</th>
+            </tr>
+        </thead>
+        <tbody id="productenBody"></tbody>
+    </table>
 </body>
 </html>
