@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="javascript/crud.js" defer></script>
+    <title>Producten CRUD</title>
+</head>
+<body>
+    <h1>Producten CRUD</h1>
+
+    <h2>Product toevoegen of aanpassen</h2>
+
+    <form>
+        <label for="productID">productID:</label>
+        <input type="number" id="productID" name="productID">
+        <br><br>
+
+        <label for="categorieID">categorieID:</label>
+        <input type="number" id="categorieID" name="categorieID">
+        <p>1 = gpu / 2 = cpu / 3 = ram / 4 = motherboards</p>
+        <br><br>
+
+        <label for="merk">merk:</label>
+        <input type="text" id="merk" name="merk">
+        <br><br>
+
+        <label for="naam">naam:</label>
+        <input type="text" id="naam" name="naam">
+        <br><br>
+
+        <label for="prijs">prijs:</label>
+        <input type="number" id="prijs" name="prijs" step="0.01">
+        <br><br>
+
+        <label for="afbeelding">afbeelding:</label>
+        <input type="text" id="afbeelding" name="afbeelding">
+        <br><br>
+
+        <label for="korteInfo">korteInfo:</label>
+        <input type="text" id="korteInfo" name="korteInfo">
+        <br><br>
+
+        <label for="omschrijving">omschrijving:</label>
+        <textarea id="omschrijving" name="omschrijving"></textarea>
+        <br><br>
+
+        <label for="tier">tier:</label>
+        <input type="text" id="tier" name="tier">
+        <br><br>
+
+        <label for="voorraad">voorraad:</label>
+        <input type="number" id="voorraad" name="voorraad">
+        <br><br>
+
+        <button type="submit">Toevoegen</button>
+        <button type="submit">Aanpassen</button>
+        <button type="submit">Verwijderen</button>
+        <button type="reset">Leegmaken</button>
+    </form>
+
+    <h2>Producten bekijken</h2>
+</body>
+</html>
