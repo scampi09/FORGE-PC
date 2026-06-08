@@ -2,51 +2,79 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="javascript/crud.js"></script>
-    <title>Producten CRUD</title>
+    <title>Producten beheren</title>
 </head>
 <body>
-<h1>Producten beheren</h1>
+
+    <h1>Producten beheren</h1>
 
     <p><a href="index.html">Terug naar de lijst</a></p>
 
     <!-- Formulier: toevoegen OF bewerken -->
     <h2>Product toevoegen / bewerken</h2>
 
-    <!-- Leeg laten = toevoegen, invullen = bewerken -->
+    <!-- Verborgen veld: leeg = toevoegen, gevuld = bewerken -->
     <p>
-        Product-id:
-        <input type="number" id="productId">
+        productID:
+        <input readonly id="productId" placeholder="leeg laten voor nieuw product">
     </p>
 
     <p>
         Naam:
-        <input type="text" id="naam">
+        <input type="text" id="naam" >
     </p>
     <p>
         Prijs:
-        <input type="number" id="prijs" step="0.01">
+        <input type="number" id="prijs" >
     </p>
     <p>
         Categorie-id:
-        <input type="number" id="categorieId">
+        <input type="number" id="categorieId" >
+    </p>
+    <p>
+        Afbeelding:
+        <input type="text" id="afbeelding">
+    </p>
+    <p>
+        Omschrijving:
+        <input type="text" id="omschrijving" >
+    </p>
+    <p>
+        Tier:
+        <input type="text" id="tier" >
+    </p>
+    <p>
+        Korte info:
+        <input type="text" id="korteInfo" >
+    </p>
+    <p>
+        Voorraad:
+        <input type="number" id="voorraad">
+    </p>
+    <p>
+        Merk:
+        <input type="text" id="merk">
     </p>
     <p>
         <button id="opslaanKnop">Opslaan</button>
-        <button id="verwijderKnop">Verwijderen</button>
         <button id="annuleerKnop">Annuleren</button>
     </p>
 
+    <!-- Lijst met alle producten + bewerk/verwijder knoppen -->
+    <h2>Alle producten</h2>
+    <ul id="productenLijst"></ul>
+
+    <!-- Eerst de helper, dan de CRUD-functies -->
+    <script src="app.js"></script>
+    <script src="/javascript/crud.js"></script>
     <script>
         // Koppel de knoppen aan hun functies
         document.getElementById("opslaanKnop").addEventListener("click", productOpslaan);
-        document.getElementById("verwijderKnop").addEventListener("click", function() {
-            productVerwijderen(document.getElementById("productId").value);
-        });
         document.getElementById("annuleerKnop").addEventListener("click", formulierLeegmaken);
+
+        // Toon de lijst zodra de pagina geladen is
+        toonBeheerLijst();
     </script>
 
- 
 </body>
 </html>
