@@ -33,7 +33,7 @@ async function toonBeheerLijst() {
         const verwijderKnop = document.createElement("button");
         verwijderKnop.textContent = "Verwijderen";
         verwijderKnop.addEventListener("click", function () {
-            productVerwijderen(product.id);
+            productVerwijderen(product.productID);
         });
         item.appendChild(verwijderKnop);
 
@@ -43,10 +43,10 @@ async function toonBeheerLijst() {
 
 // --- Formulier vullen met een bestaand product (voor bewerken) ---
 function formulierVullen(product) {
-    document.getElementById("productId").value = product.productid;
+    document.getElementById("productId").value = product.productID;
     document.getElementById("naam").value = product.naam;
     document.getElementById("prijs").value = product.prijs;
-    document.getElementById("categorieId").value = product.categorie_id;
+    document.getElementById("categorieId").value = product.categorieID;
     document.getElementById("afbeelding").value = product.afbeelding;
     document.getElementById("omschrijving").value = product.omschrijving;
     document.getElementById("tier").value = product.tier;
@@ -102,7 +102,7 @@ async function productOpslaan() {
               "korteInfo = '" + korteInfo + "', " +
               "voorraad = " + voorraad + ", " +
               "merk = '" + merk + "' " +
-              "WHERE productid = " + id;
+              "WHERE productID = " + id;
     }
 
     await runQuery(sql);
@@ -120,7 +120,7 @@ async function productVerwijderen(id) {
         return;
     }
 
-    await runQuery("DELETE FROM producten WHERE productid = " + id);
+    await runQuery("DELETE FROM producten WHERE productID = " + id);
 
     // Lijst opnieuw laden
     toonBeheerLijst();

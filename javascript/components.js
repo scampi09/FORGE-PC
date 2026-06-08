@@ -1,38 +1,37 @@
+// We slaan de producten hier globaal op zodat filterProducten er ook bij kan
+let alleProducten = []; 
+
 function getProductValue(product, keys, fallback) {
     for (const key of keys) {
         if (product[key] !== undefined && product[key] !== null && product[key] !== "") {
             return product[key];
         }
     }
-
     return fallback;
 }
-
 
 function renderProductCards(producten) {
     const grid = document.querySelector("#productGrid");
 
-    if (!grid) {
-        return;
-    }
+    if (!grid) return;
 
     if (!Array.isArray(producten) || producten.length === 0) {
-        grid.innerHTML = "<p class=\"productGridEmpty\">Geen producten gevonden.</p>";
+        grid.innerHTML = '<p class="productGridEmpty">Geen producten gevonden.</p>';
         return;
     }
 
     grid.innerHTML = producten.map(product => { 
         const productID = product.productID;
-        const naam = product.naam
-        const prijs = product.prijs
-        const afbeelding = product.afbeelding        
-        const korteInfo = product.korteInfo
-        const merk = product.merk
-        const categorieID = product.categorieID
+        const naam = product.naam;
+        const prijs = product.prijs;
+        const afbeelding = product.afbeelding;        
+        const korteInfo = product.korteInfo;
+        const merk = product.merk;
+        const categorieID = product.categorieID; // Dit werkt nu omdat we het ophalen uit de SQL query
 
         return `
             <div class="productGridItem" data-categorie-id="${categorieID}">
-                <a href="product.html?id=${(productID)}">
+                <a href="product.html?id=${productID}">
                     <div>
                         <img src="${afbeelding}" alt="${naam}">
                     </div>
@@ -43,7 +42,7 @@ function renderProductCards(producten) {
                         <hr>
                     </div>
                     <div class="productPrice">
-                        <p>${(prijs)}</p>
+                        <p>€ ${prijs}</p>
                         <img src="photos/add-to-cart.png" alt="add to shopping cart">
                     </div>
                 </a>
@@ -53,8 +52,40 @@ function renderProductCards(producten) {
 }
 
 async function laadProducten() {
-    const producten = await runQuery("SELECT ROUND(prijs * 0.21, 2) AS prijs, productID, afbeelding, naam, merk, korteInfo FROM producten ");
-    renderProductCards(producten);
+    // BELANGRIJK: 'categorieID' is toegevoegd aan de SQL query!
+    // Let ook op: Je deed prijs * 0.21. Dit berekent de BTW, niet de totaalprijs. Als dat de bedoeling is, is het goed!
+    alleProducten = await runQuery("SELECT ROUND(prijs * 0.21, 2) AS prijs, productID, afbeelding, naam, merk, korteInfo, categorieID FROM producten");
+    
+    // Toon initieel alle producten
+    renderProductCards(alleProducten);
+    
+    // Activeer de event listener voor het filteren
+    setupFilters();
 }
 
+function setupFilters() {
+    const filterElement = document.querySelector("#categorieFilter");
+    
+    if (filterElement) {
+        filterElement.addEventListener("change", filterProducten);
+    }
+}
+
+function filterProducten() {
+    const geselecteerdeCategorie = document.querySelector("#categorieFilter").value;
+
+    // Als 'all' is gekozen tonen we alles, anders filteren we op categorieID
+    if (geselecteerdeCategorie === "all") {
+        renderProductCards(alleProducten);
+    } else {
+        const gefilterdeProducten = alleProducten.filter(product => {
+            // We zetten alles om naar een String voor een veilige vergelijking
+            return String(product.categorieID) === String(geselecteerdeCategorie);
+        });
+        
+        renderProductCards(gefilterdeProducten);
+    }
+}
+
+// Start het proces
 laadProducten();
