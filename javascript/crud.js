@@ -13,14 +13,19 @@ async function runQuery(sql) {
 
     if (result.success) {
         return result.data;
-    } else {
-        alert("SQL fout: " + result.error);
-        return [];
     }
+
+    alert("SQL fout: " + result.error);
+    return [];
+}
+
+function veldBestaat(id) {
+    return document.getElementById(id) !== null;
 }
 
 function waarde(id) {
-    return document.getElementById(id).value;
+    const veld = document.getElementById(id);
+    return veld ? veld.value : "";
 }
 
 function sqlTekst(tekst) {
@@ -39,116 +44,209 @@ function sqlGetal(getal) {
     return getal;
 }
 
-function vulFormulier(product) {
-    document.getElementById("productID").value = product.productID;
-    document.getElementById("categorieID").value = product.categorieID;
-    document.getElementById("merk").value = product.merk;
+function formulierVullen(product) {
+    document.getElementById("productId").value = product.productID;
     document.getElementById("naam").value = product.naam;
     document.getElementById("prijs").value = product.prijs;
-    document.getElementById("afbeelding").value = product.afbeelding;
-    document.getElementById("korteInfo").value = product.korteInfo;
-    document.getElementById("omschrijving").value = product.omschrijving;
-    document.getElementById("tier").value = product.tier;
-    document.getElementById("voorraad").value = product.voorraad;
+    document.getElementById("categorieId").value = product.categorieID;
+
+    if (veldBestaat("merk")) {
+        document.getElementById("merk").value = product.merk ?? "";
+    }
+
+    if (veldBestaat("afbeelding")) {
+        document.getElementById("afbeelding").value = product.afbeelding ?? "";
+    }
+
+    if (veldBestaat("omschrijving")) {
+        document.getElementById("omschrijving").value = product.omschrijving ?? "";
+    }
+
+    if (veldBestaat("tier")) {
+        document.getElementById("tier").value = product.tier ?? "";
+    }
+
+    if (veldBestaat("korteInfo")) {
+        document.getElementById("korteInfo").value = product.korteInfo ?? "";
+    }
+
+    if (veldBestaat("voorraad")) {
+        document.getElementById("voorraad").value = product.voorraad ?? "";
+    }
 }
 
-async function laadProducten() {
+function formulierLeegmaken() {
+    document.getElementById("productId").value = "";
+    document.getElementById("naam").value = "";
+    document.getElementById("prijs").value = "";
+    document.getElementById("categorieId").value = "";
+
+    if (veldBestaat("merk")) {
+        document.getElementById("merk").value = "";
+    }
+
+    if (veldBestaat("afbeelding")) {
+        document.getElementById("afbeelding").value = "";
+    }
+
+    if (veldBestaat("omschrijving")) {
+        document.getElementById("omschrijving").value = "";
+    }
+
+    if (veldBestaat("tier")) {
+        document.getElementById("tier").value = "";
+    }
+
+    if (veldBestaat("korteInfo")) {
+        document.getElementById("korteInfo").value = "";
+    }
+
+    if (veldBestaat("voorraad")) {
+        document.getElementById("voorraad").value = "";
+    }
+}
+
+async function toonBeheerLijst() {
     const producten = await runQuery("SELECT * FROM producten ORDER BY productID DESC");
-    const tbody = document.getElementById("productenBody");
+    const lijst = document.getElementById("productenLijst");
 
-    tbody.innerHTML = "";
+    lijst.innerHTML = "";
 
-    producten.forEach(function(product) {
-        const rij = document.createElement("tr");
+    for (const product of producten) {
+        const item = document.createElement("li");
 
-        rij.innerHTML = `
-            <td>${product.productID}</td>
-            <td>${product.categorieID}</td>
-            <td>${product.merk}</td>
-            <td>${product.naam}</td>
-            <td>${product.prijs}</td>
-            <td>${product.afbeelding}</td>
-            <td>${product.korteInfo}</td>
-            <td>${product.omschrijving}</td>
-            <td>${product.tier}</td>
-            <td>${product.voorraad}</td>
-        `;
+        item.textContent =
+            product.productID + " - " +
+            product.naam + " - " +
+            product.prijs + " - categorie " +
+            product.categorieID + " - " +
+            (product.merk ?? "") + " - voorraad " +
+            product.voorraad + " ";
 
-        rij.addEventListener("click", function() {
-            vulFormulier(product);
+        const bewerkKnop = document.createElement("button");
+        bewerkKnop.textContent = "Bewerken";
+        bewerkKnop.addEventListener("click", function() {
+            formulierVullen(product);
         });
 
-        tbody.appendChild(rij);
-    });
+        const verwijderKnop = document.createElement("button");
+        verwijderKnop.textContent = "Verwijderen";
+        verwijderKnop.addEventListener("click", function() {
+            productVerwijderen(product.productID);
+        });
+
+        item.appendChild(bewerkKnop);
+        item.appendChild(verwijderKnop);
+        lijst.appendChild(item);
+    }
 }
 
-async function productToevoegen() {
-    const sql = `
-        INSERT INTO producten
-        (categorieID, merk, naam, prijs, afbeelding, korteInfo, omschrijving, tier, voorraad)
-        VALUES
-        (
-            ${sqlGetal(waarde("categorieID"))},
-            ${sqlTekst(waarde("merk"))},
-            ${sqlTekst(waarde("naam"))},
-            ${sqlGetal(waarde("prijs"))},
-            ${sqlTekst(waarde("afbeelding"))},
-            ${sqlTekst(waarde("korteInfo"))},
-            ${sqlTekst(waarde("omschrijving"))},
-            ${sqlTekst(waarde("tier"))},
-            ${sqlGetal(waarde("voorraad"))}
-        )
-    `;
+function maakInsertSql() {
+    const kolommen = ["naam", "prijs", "categorieID"];
+    const waarden = [
+        sqlTekst(waarde("naam")),
+        sqlGetal(waarde("prijs")),
+        sqlGetal(waarde("categorieId"))
+    ];
 
-    await runQuery(sql);
-    await laadProducten();
-    document.getElementById("productForm").reset();
+    if (veldBestaat("merk")) {
+        kolommen.push("merk");
+        waarden.push(sqlTekst(waarde("merk")));
+    }
+
+    if (veldBestaat("afbeelding")) {
+        kolommen.push("afbeelding");
+        waarden.push(sqlTekst(waarde("afbeelding")));
+    }
+
+    if (veldBestaat("omschrijving")) {
+        kolommen.push("omschrijving");
+        waarden.push(sqlTekst(waarde("omschrijving")));
+    }
+
+    if (veldBestaat("tier")) {
+        kolommen.push("tier");
+        waarden.push(sqlTekst(waarde("tier")));
+    }
+
+    if (veldBestaat("korteInfo")) {
+        kolommen.push("korteInfo");
+        waarden.push(sqlTekst(waarde("korteInfo")));
+    }
+
+    if (veldBestaat("voorraad")) {
+        kolommen.push("voorraad");
+        waarden.push(sqlGetal(waarde("voorraad")));
+    }
+
+    return "INSERT INTO producten (" + kolommen.join(", ") + ") VALUES (" + waarden.join(", ") + ")";
 }
 
-async function productAanpassen() {
-    const productID = waarde("productID");
+function maakUpdateSql(productId) {
+    const updates = [
+        "naam = " + sqlTekst(waarde("naam")),
+        "prijs = " + sqlGetal(waarde("prijs")),
+        "categorieID = " + sqlGetal(waarde("categorieId"))
+    ];
 
-    if (productID === "") {
-        alert("Vul eerst een productID in.");
+    if (veldBestaat("merk")) {
+        updates.push("merk = " + sqlTekst(waarde("merk")));
+    }
+
+    if (veldBestaat("afbeelding")) {
+        updates.push("afbeelding = " + sqlTekst(waarde("afbeelding")));
+    }
+
+    if (veldBestaat("omschrijving")) {
+        updates.push("omschrijving = " + sqlTekst(waarde("omschrijving")));
+    }
+
+    if (veldBestaat("tier")) {
+        updates.push("tier = " + sqlTekst(waarde("tier")));
+    }
+
+    if (veldBestaat("korteInfo")) {
+        updates.push("korteInfo = " + sqlTekst(waarde("korteInfo")));
+    }
+
+    if (veldBestaat("voorraad")) {
+        updates.push("voorraad = " + sqlGetal(waarde("voorraad")));
+    }
+
+    return "UPDATE producten SET " + updates.join(", ") + " WHERE productID = " + productId;
+}
+
+async function productOpslaan() {
+    const productId = waarde("productId");
+
+    if (waarde("naam") === "" || waarde("prijs") === "" || waarde("categorieId") === "") {
+        alert("Vul naam, prijs en categorie-id in.");
         return;
     }
 
-    const sql = `
-        UPDATE producten
-        SET
-            categorieID = ${sqlGetal(waarde("categorieID"))},
-            merk = ${sqlTekst(waarde("merk"))},
-            naam = ${sqlTekst(waarde("naam"))},
-            prijs = ${sqlGetal(waarde("prijs"))},
-            afbeelding = ${sqlTekst(waarde("afbeelding"))},
-            korteInfo = ${sqlTekst(waarde("korteInfo"))},
-            omschrijving = ${sqlTekst(waarde("omschrijving"))},
-            tier = ${sqlTekst(waarde("tier"))},
-            voorraad = ${sqlGetal(waarde("voorraad"))}
-        WHERE productID = ${productID}
-    `;
+    if (productId === "") {
+        await runQuery(maakInsertSql());
+    } else {
+        await runQuery(maakUpdateSql(productId));
+    }
 
-    await runQuery(sql);
-    await laadProducten();
+    formulierLeegmaken();
+    alert("Product opgeslagen.");
 }
 
-async function productVerwijderen() {
-    const productID = waarde("productID");
-
-    if (productID === "") {
-        alert("Vul eerst een productID in.");
+async function productVerwijderen(productId) {
+    if (productId === "") {
+        alert("Vul eerst een product-id in.");
         return;
     }
 
-    const sql = `DELETE FROM producten WHERE productID = ${productID}`;
+    const zeker = confirm("Weet je zeker dat je dit product wilt verwijderen?");
 
-    await runQuery(sql);
-    await laadProducten();
-    document.getElementById("productForm").reset();
+    if (!zeker) {
+        return;
+    }
+
+    await runQuery("DELETE FROM producten WHERE productID = " + productId);
+    formulierLeegmaken();
+    alert("Product verwijderd.");
 }
-
-document.getElementById("btnToevoegen").addEventListener("click", productToevoegen);
-document.getElementById("btnAanpassen").addEventListener("click", productAanpassen);
-document.getElementById("btnVerwijderen").addEventListener("click", productVerwijderen);
-
-laadProducten();

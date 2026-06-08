@@ -8,18 +8,6 @@ function getProductValue(product, keys, fallback) {
     return fallback;
 }
 
-function formatEuro(value) {
-    const number = Number(value);
-
-    if (Number.isNaN(number)) {
-        return "\u20AC0,00";
-    }
-
-    return number.toLocaleString("nl-BE", {
-        style: "currency",
-        currency: "EUR"
-    });
-}
 
 function renderProductCards(producten) {
     const grid = document.querySelector("#productGrid");
@@ -34,18 +22,17 @@ function renderProductCards(producten) {
     }
 
     grid.innerHTML = producten.map(product => { 
-        const productID = getProductValue(product, ["productID", "id"], "");
-        const naam = getProductValue(product, ["naam", "name"], "Onbekend product");
-        const prijs = getProductValue(product, ["prijs", "price"], 0);
-        const afbeelding = getProductValue(product, ["afbeelding", "image"], "photos/rtx4090.jpg");
-        const korteInfo = getProductValue(product, ["korteInfo", "korte_info", "korteinfo", "omschrijving", "description"], "");
-        const merkWaarde = getProductValue(product, ["merkNaam", "merk", "brand"], "FORGE PC");
-        const merk = typeof merkWaarde === "string" ? merkWaarde : "FORGE PC";
-        const categorieID = getProductValue(product, ["categorieID", "categorie_id"], "");
+        const productID = product.productID;
+        const naam = product.naam
+        const prijs = product.prijs
+        const afbeelding = product.afbeelding        
+        const korteInfo = product.korteInfo
+        const merk = product.merk
+        const categorieID = product.categorieID
 
         return `
             <div class="productGridItem" data-categorie-id="${categorieID}">
-                <a href="product.html?id=${encodeURIComponent(productID)}">
+                <a href="product.html?id=${(productID)}">
                     <div>
                         <img src="${afbeelding}" alt="${naam}">
                     </div>
@@ -56,7 +43,7 @@ function renderProductCards(producten) {
                         <hr>
                     </div>
                     <div class="productPrice">
-                        <p>${formatEuro(prijs)}</p>
+                        <p>${(prijs)}</p>
                         <img src="photos/add-to-cart.png" alt="add to shopping cart">
                     </div>
                 </a>
@@ -66,7 +53,7 @@ function renderProductCards(producten) {
 }
 
 async function laadProducten() {
-    const producten = await runQuery("SELECT * FROM producten ");
+    const producten = await runQuery("SELECT ROUND(prijs * 0.21, 2) AS prijs, productID, afbeelding, naam, merk, korteInfo FROM producten ");
     renderProductCards(producten);
 }
 
