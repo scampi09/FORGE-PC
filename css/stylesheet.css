@@ -715,6 +715,157 @@ input[type="range"]::-moz-range-thumb {
     transition: 0.3s;
 }
 
+/*============================================*/
+/* HERE IS ALLES VOOR DE ABOUT US PAGE*/
+.contactPage {
+    background-color: var(--background-color-dark);
+    border-top: 2px solid rgb(53, 53, 53);
+}
+
+.contactUs {
+    width: 46%;
+    margin: 0 auto;
+    padding-top: 35px;
+    padding-bottom: 70px;
+}
+
+.contactTitle {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.contactTitle h1 {
+    color: rgb(255, 255, 255);
+    font-family: 'inter';
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.contactTitle p {
+    color: var(--secundary-text-color);
+    font-family: 'inter';
+    font-size: 13px;
+    line-height: 1.6;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.contactForm {
+    width: 100%;
+}
+
+.contactFormTop {
+    display: flex;
+    gap: 40px;
+}
+
+.contactInputContainer {
+    width: 100%;
+    margin-bottom: 28px;
+}
+
+.contactInputContainer label {
+    color: var(--primary-Text-Color);
+    display: block;
+    font-family: 'inter';
+    font-size: 9px;
+    margin-bottom: 10px;
+}
+
+.contactInputContainer input,
+.contactInputContainer textarea {
+    width: 100%;
+    background-color: var(--background-color-light);
+    border: 1px solid var(--background-color-light);
+    border-radius: 4px;
+    color: rgb(225, 225, 225);
+    font-family: 'inter';
+    font-size: 12px;
+    padding: 17px;
+    outline: none;
+}
+
+.contactInputContainer input:focus,
+.contactInputContainer textarea:focus {
+    border-color: var(--primary-Text-Color);
+}
+
+.contactInputContainer textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.contactButton {
+    background-color: var(--primary-Text-Color);
+    border: none;
+    border-radius: 4px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-family: 'inter';
+    font-size: 10px;
+    font-weight: 700;
+    padding-block: 14px;
+    width: 190px;
+}
+
+.contactButton:hover {
+    background-color: var(--secundary-hover-color);
+    transition: 0.3s;
+}
+
+.mapContainer {
+    margin-top: 55px;
+    border: 1px solid rgb(53, 53, 53);
+    background-color: var(--background-color-light);
+}
+
+.mapContainer iframe {
+    display: block;
+    width: 100%;
+    height: 260px;
+}
+
+.contactInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 55px;
+    margin-top: 55px;
+}
+
+.contactInfoText {
+    width: 45%;
+}
+
+.contactInfoTitle,
+.contactInfoLabel {
+    color: var(--primary-Text-Color);
+    font-family: 'inter';
+    font-size: 10px;
+    font-weight: 700;
+    margin-bottom: 13px;
+}
+
+.contactInfoLabel {
+    color: var(--secundary-text-color);
+    font-size: 9px;
+    margin-bottom: 5px;
+}
+
+.contactInfoValue {
+    color: rgb(255, 255, 255);
+    font-family: 'inter';
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.contactInfoPhoto {
+    width: 55%;
+    height: 125px;
+    overflow: hidden;
+}
+
 
 /* ============================================================
    RESPONSIVE PHONE CSS ADDED BY CODEX
@@ -1170,6 +1321,61 @@ input[type="range"]::-moz-range-thumb {
 
     .productDescriptionPrijs {
         font-size: 28px;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE ABOUT CONTACT PAGE
+   ============================================================ */
+
+@media (max-width: 900px) {
+    .contactUs {
+        width: 72%;
+    }
+}
+
+@media (max-width: 650px) {
+    .contactUs {
+        width: calc(100% - 40px);
+        padding-top: 30px;
+        padding-bottom: 45px;
+    }
+
+    .contactTitle h1 {
+        font-size: 34px;
+    }
+
+    .contactTitle p {
+        width: 100%;
+    }
+
+    .contactFormTop {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .contactButton {
+        width: 100%;
+    }
+
+    .mapContainer {
+        margin-top: 40px;
+    }
+
+    .mapContainer iframe {
+        height: 230px;
+    }
+
+    .contactInfo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+        margin-top: 40px;
+    }
+
+    .contactInfoText,
+    .contactInfoPhoto {
+        width: 100%;
     }
 }
 
