@@ -51,41 +51,66 @@ function renderProductCards(producten) {
     }).join("");
 }
 
+const buttonProcessors = document.querySelector("#buttonProcessors");
+
+const buttonHardWear = document.querySelector("#buttonHardWear");
+const buttonProcessors = document.querySelector("#buttonProcessors");
+const buttonGrapicCards = document.querySelector("#buttonGrapicCards");
+const buttonMemory = document.querySelector("#buttonMemory");
+const buttonMotherboards = document.querySelector("#buttonMotherboards");
+const buttonStorage = document.querySelector("#buttonStorage");
+
+let alleProducten = [];
+
 async function laadProducten() {
-    // BELANGRIJK: 'categorieID' is toegevoegd aan de SQL query!
-    // Let ook op: Je deed prijs * 0.21. Dit berekent de BTW, niet de totaalprijs. Als dat de bedoeling is, is het goed!
-    alleProducten = await runQuery("SELECT ROUND(prijs * 0.21, 2) AS prijs, productID, afbeelding, naam, merk, korteInfo, categorieID FROM producten");
-    
-    // Toon initieel alle producten
+    alleProducten = await runQuery(`
+        SELECT 
+            (prijs + ROUND(prijs * 0.21, 2)) AS prijs,
+            productID,
+            afbeelding,
+            naam,
+            merk,
+            korteInfo,
+            categorieID
+        FROM producten
+    `);
+
     renderProductCards(alleProducten);
-    
-    // Activeer de event listener voor het filteren
     setupFilters();
 }
 
 function setupFilters() {
-    const filterElement = document.querySelector("#categorieFilter");
-    
-    if (filterElement) {
-        filterElement.addEventListener("change", filterProducten);
-    }
-}
-
-function filterProducten() {
-    const geselecteerdeCategorie = document.querySelector("#categorieFilter").value;
-
-    // Als 'all' is gekozen tonen we alles, anders filteren we op categorieID
-    if (geselecteerdeCategorie === "all") {
+    buttonHardWear.addEventListener("click", () => {
         renderProductCards(alleProducten);
-    } else {
-        const gefilterdeProducten = alleProducten.filter(product => {
-            // We zetten alles om naar een String voor een veilige vergelijking
-            return String(product.categorieID) === String(geselecteerdeCategorie);
-        });
-        
-        renderProductCards(gefilterdeProducten);
-    }
+    });
+
+    buttonProcessors.addEventListener("click", () => {
+        filterOpCategorie(1);
+    });
+
+    buttonGrapicCards.addEventListener("click", () => {
+        filterOpCategorie(2);
+    });
+
+    buttonMemory.addEventListener("click", () => {
+        filterOpCategorie(3);
+    });
+
+    buttonMotherboards.addEventListener("click", () => {
+        filterOpCategorie(4);
+    });
+
+    buttonStorage.addEventListener("click", () => {
+        filterOpCategorie(5);
+    });
 }
 
-// Start het proces
+function filterOpCategorie(categorieID) {
+    const gefilterdeProducten = alleProducten.filter(product => {
+        return Number(product.categorieID) === categorieID;
+    });
+
+    renderProductCards(gefilterdeProducten);
+}
+
 laadProducten();
