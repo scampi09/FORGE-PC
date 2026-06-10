@@ -107,3 +107,41 @@ async function runQuery(sql) {
         return FALLBACK_PRODUCTEN;
     }
 }
+
+
+// caching systeem
+function getCart() {
+    return JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+function saveCart(cart) {
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function addToCart(product) {
+    const cart = getCart();
+    const existingItem = cart.find(item => item.id === product.id);
+
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({
+            id: product.id,
+            name: product.name,
+            price: Number(product.price),
+            image: product.image,
+            quantity: 1
+        });
+    }
+
+    saveCart(cart);
+}
+
+function removeFromCart(id) {
+    const cart = getCart().filter(item => item.id !== id);
+    saveCart(cart);
+}
+
+function clearCart() {
+    localStorage.removeItem("cart");
+}

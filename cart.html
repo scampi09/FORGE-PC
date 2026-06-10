@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winkelmandje</title>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <h1>Winkelmandje</h1>
+
+    <ul id="cartList"></ul>
+
+    <button id="clearCartButton">Leeg mandje</button>
+
+    <script>
+        const cartList = document.getElementById("cartList");
+        const clearCartButton = document.getElementById("clearCartButton");
+
+        function renderCart() {
+            const cart = getCart();
+
+            if (cart.length === 0) {
+                cartList.innerHTML = "<li>Winkelmandje is leeg</li>";
+                return;
+            }
+
+            cartList.innerHTML = cart.map(item => `
+                <li>
+                    ${item.name} - €${item.price} x ${item.quantity}
+                    <button onclick="removeFromCart(${item.id}); location.reload();">Verwijder</button>
+                </li>
+            `).join("");
+        }
+
+        clearCartButton.addEventListener("click", function () {
+            clearCart();
+            renderCart();
+        });
+
+        renderCart();
+    </script>
+</body>
+</html>

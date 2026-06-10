@@ -221,6 +221,17 @@ if (buttonElite) {
 }
 
 if (productAddToCartButton) {
+    productAddToCartButton.addEventListener("click", function () {
+        addToCart({
+            id: productId,
+            name: naam,
+            price: prijs,
+            image: afbeelding
+        });
+
+        alert("Toegevoegd aan winkelmandje");
+    });
+
     productAddToCartButton.addEventListener("mousedown", function() {
         productAddToCartButton.style.backgroundColor = "rgb(196, 109, 11)";
     });

@@ -51,66 +51,17 @@ function renderProductCards(producten) {
     }).join("");
 }
 
-const buttonProcessors = document.querySelector("#buttonProcessors");
-
-const buttonHardWear = document.querySelector("#buttonHardWear");
-const buttonProcessors = document.querySelector("#buttonProcessors");
-const buttonGrapicCards = document.querySelector("#buttonGrapicCards");
-const buttonMemory = document.querySelector("#buttonMemory");
-const buttonMotherboards = document.querySelector("#buttonMotherboards");
-const buttonStorage = document.querySelector("#buttonStorage");
-
-let alleProducten = [];
-
 async function laadProducten() {
-    alleProducten = await runQuery(`
-        SELECT 
-            (prijs + ROUND(prijs * 0.21, 2)) AS prijs,
-            productID,
-            afbeelding,
-            naam,
-            merk,
-            korteInfo,
-            categorieID
-        FROM producten
-    `);
-
+    // BELANGRIJK: 'categorieID' is toegevoegd aan de SQL query!
+    // Let ook op: Je deed prijs * 0.21. Dit berekent de BTW, niet de totaalprijs. Als dat de bedoeling is, is het goed!
+    alleProducten = await runQuery("SELECT round(prijs * 1.21,2) AS prijs, productID, afbeelding, naam, merk, korteInfo, categorieID FROM producten");
+    
+    // Toon initieel alle producten
     renderProductCards(alleProducten);
+    
+    // Activeer de event listener voor het filteren
     setupFilters();
 }
 
-function setupFilters() {
-    buttonHardWear.addEventListener("click", () => {
-        renderProductCards(alleProducten);
-    });
-
-    buttonProcessors.addEventListener("click", () => {
-        filterOpCategorie(1);
-    });
-
-    buttonGrapicCards.addEventListener("click", () => {
-        filterOpCategorie(2);
-    });
-
-    buttonMemory.addEventListener("click", () => {
-        filterOpCategorie(3);
-    });
-
-    buttonMotherboards.addEventListener("click", () => {
-        filterOpCategorie(4);
-    });
-
-    buttonStorage.addEventListener("click", () => {
-        filterOpCategorie(5);
-    });
-}
-
-function filterOpCategorie(categorieID) {
-    const gefilterdeProducten = alleProducten.filter(product => {
-        return Number(product.categorieID) === categorieID;
-    });
-
-    renderProductCards(gefilterdeProducten);
-}
-
+// Start het proces
 laadProducten();
