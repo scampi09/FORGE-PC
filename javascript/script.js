@@ -1,5 +1,5 @@
 
-buttonHardWear = document.querySelector("#buttonHardWear");
+const buttonHardWear = document.querySelector("#buttonHardWear");
 const buttonProcessors = document.querySelector("#buttonProcessors");
 const buttonGrapicCards = document.querySelector("#buttonGrapicCards");
 const buttonMemory = document.querySelector("#buttonMemory");
@@ -43,14 +43,14 @@ async function laadProductDetail() {
         return;
     }
 
-    const producten = await runQuery(`SELECT round(prijs * 1.21,2) AS prijs, productID, afbeelding, naam, merk, korteInfo, categorieID FROM producten WHERE productID = ${productId} LIMIT 1`);
+    const producten = await runQuery(`SELECT round(prijs * 1.21,2) AS prijs, productID, afbeelding, naam, merk, korteInfo, omschrijving, categorieID FROM producten WHERE productID = ${productId} LIMIT 1`);
 
     if (!Array.isArray(producten) || producten.length === 0) {
         return;
     }
 
     const product = producten.find(item => Number(item.productID) === productId) || producten[0];
-    currentProduct = product;
+    const currentProduct = product;
     const naam = getProductValue(product, ["naam", "name"], "Onbekend product");
     const afbeelding = getProductValue(product, ["afbeelding", "image"], "photos/rtx4090.jpg");
     const merkWaarde = getProductValue(product, ["merkNaam", "merk", "brand"], "FORGE PC");
@@ -65,7 +65,7 @@ async function laadProductDetail() {
     productBrandExtra.textContent = merk;
     productTitle.textContent = naam;
     productDescription.textContent = omschrijving;
-    productPrice.textContent = formatEuro(prijs);
+
 
     if (productOldPrice) {
         if (oudePrijs !== null && oudePrijs !== "") {

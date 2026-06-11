@@ -156,7 +156,7 @@ async function searchProduct() {
     renderProductCards(runsearchfunction);
 }
 
-const searchBar = document.querySelector("#searchbar");
+const searchbar = document.querySelector("#searchbar");
 
 if(searchbar){
     searchbar.addEventListener("input", searchProduct);

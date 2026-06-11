@@ -10,49 +10,5 @@
 <body>
     <h1>Winkelmandje</h1>
 
-    <ul id="cartList"></ul>
-
-    <p id="cartTotal"></p>
-
-    <button id="clearCartButton">Leeg mandje</button>
-
-    <script>
-        const cartList = document.getElementById("cartList");
-        const cartTotal = document.getElementById("cartTotal");
-        const clearCartButton = document.getElementById("clearCartButton");
-
-        function renderCart() {
-            const cart = getCart();
-
-            if (cart.length === 0) {
-                cartList.innerHTML = "<li>Winkelmandje is leeg</li>";
-                cartTotal.textContent = "";
-                return;
-            }
-
-            cartList.innerHTML = cart.map(item => `
-                <li>
-                    <img src="${item.image}" alt="${item.name}" style="width: 80px; height: 80px; object-fit: cover;">
-                    <strong>${item.name}</strong>
-                    - €${Number(item.price).toFixed(2)}
-                    x ${item.quantity}
-                    <button onclick="removeFromCart(${item.id}); renderCart();">Verwijder</button>
-                </li>
-            `).join("");
-
-            const total = cart.reduce((sum, item) => {
-                return sum + Number(item.price) * item.quantity;
-            }, 0);
-
-            cartTotal.textContent = "Totaal: €" + total.toFixed(2);
-        }
-
-        clearCartButton.addEventListener("click", function () {
-            clearCart();
-            renderCart();
-        });
-
-        renderCart();
-    </script>
 </body>
 </html>

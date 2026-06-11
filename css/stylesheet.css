@@ -14,12 +14,10 @@ html {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     background-color: rgb(0, 0, 0);
-    overscroll-behavior: none;
 }
 
-.body{
+body {
     background-color: rgb(0, 0, 0);
-    overscroll-behavior: none;
 }
 
 *, *:before, *:after {
@@ -403,7 +401,6 @@ footer{
     padding-left: 19px;
     padding-block: 10px;
     outline: none;
-
 }
 
 .componentsContainer{
@@ -891,18 +888,18 @@ input[type="range"]::-moz-range-thumb {
 
 
 /* ============================================================
-   RESPONSIVE PHONE CSS ADDED BY CODEX
-   Everything below this comment is added to make the project
-   work better on phones without changing the HTML or JavaScript.
+ RESPONSIVE DESINGING
    ============================================================ */
 
 @media (max-width: 768px) {
-    html,
+    html {
+        width: 100%;
+    }
+
     body {
         width: 100%;
         overflow-x: hidden;
         background-color: rgb(0, 0, 0);
-        overscroll-behavior: none;
     }
 
     img {
@@ -1402,3 +1399,9 @@ input[type="range"]::-moz-range-thumb {
     }
 }
 
+/* nog kleiner */
+@media (max-width: 450px) {
+    .catalogBalk{
+        flex-direction: column;
+    }
+}
