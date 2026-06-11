@@ -1,4 +1,3 @@
-let currentProduct = null;
 
 buttonHardWear = document.querySelector("#buttonHardWear");
 const buttonProcessors = document.querySelector("#buttonProcessors");
@@ -212,7 +211,7 @@ if (buttonElite) {
 
 
 if (productAddToCartButton) {
-    
+
     productAddToCartButton.addEventListener("mousedown", function() {
         productAddToCartButton.style.backgroundColor = "rgb(196, 109, 11)";
     });

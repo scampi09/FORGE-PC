@@ -2,14 +2,6 @@
 let alleProducten = []; 
 let huidigeCategorieID = null;
 
-function getProductValue(product, keys, fallback) {
-    for (const key of keys) {
-        if (product[key] !== undefined && product[key] !== null && product[key] !== "") {
-            return product[key];
-        }
-    }
-    return fallback;
-}
 
 function renderProductCards(producten) {
     const grid = document.querySelector("#productGrid");
