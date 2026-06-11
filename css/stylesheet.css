@@ -686,21 +686,6 @@ input[type="range"]::-moz-range-thumb { /* same thing just for firefox*/
    color: rgb(255, 255, 255); 
 }
 
-.productDescriptionDiscountedPrice{
-    font-size: 0.9375rem;
-    margin-top: 1.875rem;
-    margin-left: 0.625rem;
-    color: var(--secondary-text-color);
-    text-decoration: line-through;
-}
-
-.productDescriptionStock{
-    color: var(--primary-Text-Color);
-    display: block;
-    margin-top: 0.625rem;
-    font-family: 'Inter';
-}
-
 /* product detail image panel */
 
 .productContainerLeftImg{
