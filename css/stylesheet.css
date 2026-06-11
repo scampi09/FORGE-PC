@@ -18,6 +18,7 @@ html {
 
 body {
     background-color: rgb(0, 0, 0);
+    font-family: 'Inter', sans-serif;
 }
 
 *, *:before, *:after {
@@ -27,7 +28,6 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'oswald', sans-serif;
 }
 img {
   width: 100%;
@@ -142,7 +142,7 @@ header {
     background: rgba(121, 82, 37, 0.50);
     border: 1px solid rgba(255, 158, 47, 0.349);
     border-radius: 5px;
-    font-family: 'inter';
+    font-family: 'Inter';
     margin-bottom: 10px;
     padding-block: 3px;
     padding-inline: 4px;
@@ -156,12 +156,12 @@ header {
 
 .titleHero{
     color: white;
-    font-family: 'inter';
+    font-family: 'Inter';
 
 }
 
 .extraTextHero{
-    font-family: 'inter';
+    font-family: 'Inter';
     color: rgba(175, 153, 139);
 }
 
@@ -172,7 +172,7 @@ header {
 
 .buttonHeroLeft, .buttonHeroRight{
     color: rgb(255, 255, 255);
-    font-family: 'inter';
+    font-family: 'Inter';
     text-decoration: none;
     border: 1px solid rgb(255, 255, 255);
     border-radius: 5px;
@@ -524,7 +524,7 @@ input[type="range"]::-moz-range-thumb {
     border: 1px solid rgba(255, 158, 47, 0.349);
     padding: 7px 14px;
     border-radius: 2px;
-    font-family: 'inter';
+    font-family: 'Inter';
     cursor: pointer;
     transition: 0.3s;
     font-size: 11px;
@@ -535,7 +535,7 @@ input[type="range"]::-moz-range-thumb {
     background-color: rgba(121, 82, 37, 0.50);
     border: 1px solid rgba(255, 158, 47, 0.349);
     border-radius: 2px;
-    font-family: 'inter';
+    font-family: 'Inter';
     cursor: pointer;
     transition: 0.3s;
     font-size: 11px;
@@ -568,7 +568,7 @@ input[type="range"]::-moz-range-thumb {
 .productBrand{
     color: var(--primary-Text-Color);
     padding-left: 20px;
-    font-family: 'inter';
+    font-family: 'Inter';
     font-size: 12px;
     padding-bottom: 3px;
     border-radius: 10px;
@@ -585,7 +585,7 @@ input[type="range"]::-moz-range-thumb {
 
 .productExtraInfo{
     padding-left: 20px;
-    font-family: 'inter';
+    font-family: 'Inter';
     font-size: 13px;
     padding-bottom: 15px;
     color: rgb(169, 169, 169);
@@ -612,7 +612,7 @@ input[type="range"]::-moz-range-thumb {
     font-weight: 600;
     font-size: 26px;
     margin-left: 20px;
-    font-family: 'inter';
+    font-family: 'Inter';
 }
 
 .productPrice img{
@@ -637,7 +637,7 @@ input[type="range"]::-moz-range-thumb {
 .productContainerRight{
     width: 40%;
     padding-top: 50px;
-    font-family: 'inter';
+    font-family: 'Inter';
     padding-left: 50px;
 }
 
@@ -661,7 +661,7 @@ input[type="range"]::-moz-range-thumb {
 .productDescriptionPriceContainer{
     display: flex;
     gap: 5px;
-    font-family: 'inter';
+    font-family: 'Inter';
 }
 
 .productDescriptionPrice{
@@ -681,7 +681,7 @@ input[type="range"]::-moz-range-thumb {
     color: var(--primary-Text-Color);
     display: block;
     margin-top: 10px;
-    font-family: 'inter';
+    font-family: 'Inter';
 }
 
 /* ============ LEFT SIDE OF THE PRODUCTS ============*/
@@ -706,7 +706,7 @@ input[type="range"]::-moz-range-thumb {
     border: none;
     border-radius: 3px;
     color: rgb(35, 35, 35);
-    font-family: 'inter';
+    font-family: 'Inter';
     font-size: 15px;
     margin-top: 30px;
     cursor: pointer;
@@ -719,7 +719,7 @@ input[type="range"]::-moz-range-thumb {
     border: 1px solid rgb(53, 53, 53);
     border-radius: 3px;
     color: rgb(225, 225, 225);
-    font-family: 'inter';
+    font-family: 'Inter';
     font-size: 15px;
     margin-top: 30px;
     cursor: pointer;
@@ -752,14 +752,14 @@ input[type="range"]::-moz-range-thumb {
 
 .contactTitle h1 {
     color: rgb(255, 255, 255);
-    font-family: 'inter';
+    font-family: 'Inter';
     font-size: 42px;
     margin-bottom: 15px;
 }
 
 .contactTitle p {
     color: var(--secondary-text-color);
-    font-family: 'inter';
+    font-family: 'Inter';
     font-size: 13px;
     line-height: 1.6;
     width: 70%;
@@ -783,7 +783,7 @@ input[type="range"]::-moz-range-thumb {
 .contactInputContainer label {
     color: var(--primary-Text-Color);
     display: block;
-    font-family: 'inter';
+    font-family: 'Inter';
     font-size: 9px;
     margin-bottom: 10px;
 }
@@ -795,7 +795,7 @@ input[type="range"]::-moz-range-thumb {
     border: 1px solid var(--background-color-light);
     border-radius: 4px;
     color: rgb(225, 225, 225);
-    font-family: 'inter';
+    font-family: 'Inter';
     font-size: 12px;
     padding: 17px;
     outline: none;
@@ -817,7 +817,7 @@ input[type="range"]::-moz-range-thumb {
     border-radius: 4px;
     color: rgb(0, 0, 0);
     cursor: pointer;
-    font-family: 'inter';
+    font-family: 'Inter';
     font-size: 10px;
     font-weight: 700;
     padding-block: 14px;
@@ -856,7 +856,7 @@ input[type="range"]::-moz-range-thumb {
 .contactInfoTitle,
 .contactInfoLabel {
     color: var(--primary-Text-Color);
-    font-family: 'inter';
+    font-family: 'Inter';
     font-size: 10px;
     font-weight: 700;
     margin-bottom: 13px;
@@ -870,7 +870,7 @@ input[type="range"]::-moz-range-thumb {
 
 .contactInfoValue {
     color: rgb(255, 255, 255);
-    font-family: 'inter';
+    font-family: 'Inter';
     font-size: 12px;
     font-weight: 700;
     margin-bottom: 16px;
