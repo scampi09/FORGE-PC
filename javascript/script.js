@@ -1,4 +1,6 @@
-const buttonHardWear = document.querySelector("#buttonHardWear");
+let currentProduct = null;
+
+buttonHardWear = document.querySelector("#buttonHardWear");
 const buttonProcessors = document.querySelector("#buttonProcessors");
 const buttonGrapicCards = document.querySelector("#buttonGrapicCards");
 const buttonMemory = document.querySelector("#buttonMemory");
@@ -55,13 +57,14 @@ async function laadProductDetail() {
         return;
     }
 
-    const producten = await runQuery(`SELECT * FROM producten WHERE productID = ${productId} LIMIT 1`);
+    const producten = await runQuery(`SELECT round(prijs * 1.21,2) AS prijs, productID, afbeelding, naam, merk, korteInfo, categorieID FROM producten WHERE productID = ${productId} LIMIT 1`);
 
     if (!Array.isArray(producten) || producten.length === 0) {
         return;
     }
 
-    const product = producten[0];
+    const product = producten.find(item => Number(item.productID) === productId) || producten[0];
+    currentProduct = product;
     const naam = getProductValue(product, ["naam", "name"], "Onbekend product");
     const afbeelding = getProductValue(product, ["afbeelding", "image"], "photos/rtx4090.jpg");
     const merkWaarde = getProductValue(product, ["merkNaam", "merk", "brand"], "FORGE PC");
@@ -220,13 +223,19 @@ if (buttonElite) {
     });
 }
 
+
 if (productAddToCartButton) {
     productAddToCartButton.addEventListener("click", function () {
+        if (!currentProduct) {
+            alert("Product is nog niet geladen");
+            return;
+        }
+
         addToCart({
-            id: productId,
-            name: naam,
-            price: prijs,
-            image: afbeelding
+            id: currentProduct.productID,
+            name: currentProduct.naam,
+            price: currentProduct.prijs,
+            image: currentProduct.afbeelding
         });
 
         alert("Toegevoegd aan winkelmandje");

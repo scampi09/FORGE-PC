@@ -50,18 +50,51 @@ function renderProductCards(producten) {
         `;
     }).join("");
 }
-
 async function laadProducten() {
-    // BELANGRIJK: 'categorieID' is toegevoegd aan de SQL query!
-    // Let ook op: Je deed prijs * 0.21. Dit berekent de BTW, niet de totaalprijs. Als dat de bedoeling is, is het goed!
+    const cachedProducts = getProductsCache();
+
+    if (cachedProducts) {
+        alleProducten = cachedProducts;
+        renderProductCards(alleProducten);
+        setupFilters();
+        return;
+    }
+
     alleProducten = await runQuery("SELECT round(prijs * 1.21,2) AS prijs, productID, afbeelding, naam, merk, korteInfo, categorieID FROM producten");
-    
-    // Toon initieel alle producten
+
+    saveProductsCache(alleProducten);
     renderProductCards(alleProducten);
-    
-    // Activeer de event listener voor het filteren
     setupFilters();
 }
 
-// Start het proces
+function setupFilters() {
+    const filters = [
+        { button: document.querySelector("#buttonHardWear"), categorieID: null },
+        { button: document.querySelector("#buttonProcessors"), categorieID: 1 },
+        { button: document.querySelector("#buttonGrapicCards"), categorieID: 2 },
+        { button: document.querySelector("#buttonMemory"), categorieID: 3 },
+        { button: document.querySelector("#buttonMotherboards"), categorieID: 4 },
+        { button: document.querySelector("#buttonStorage"), categorieID: 5 }
+    ];
+
+    filters.forEach(filter => {
+        if (!filter.button) {
+            return;
+        }
+
+        filter.button.addEventListener("click", function () {
+            if (filter.categorieID === null) {
+                renderProductCards(alleProducten);
+                return;
+            }
+
+            const gefilterdeProducten = alleProducten.filter(product => {
+                return Number(product.categorieID) === filter.categorieID;
+            });
+
+            renderProductCards(gefilterdeProducten);
+        });
+    });
+}
+
 laadProducten();

@@ -90,9 +90,16 @@ const FALLBACK_PRODUCTEN = [
 // runQuery: stuurt een SQL-string naar de API en geeft het resultaat terug.
 // Gebruik:  const rijen = await runQuery("SELECT * FROM product");
 async function runQuery(sql) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(function () {
+        controller.abort();
+    }, 3000);
+
     try {
         // De SQL als parameter meesturen in de URL
-        const response = await fetch(API_URL + "?sql=" + encodeURIComponent(sql));
+        const response = await fetch(API_URL + "?sql=" + encodeURIComponent(sql), {
+            signal: controller.signal
+        });
         const result = await response.json();
 
         if (result.success) {
@@ -105,28 +112,36 @@ async function runQuery(sql) {
         // De API was niet bereikbaar (server uit, verkeerde URL, ...)
         console.error("API niet bereikbaar:", fout);
         return FALLBACK_PRODUCTEN;
+    } finally {
+        clearTimeout(timeoutId);
     }
 }
 
+// caching systeem + winkelwagen
+const CART_KEY = "forgepc.cart";
+const PRODUCTS_CACHE_KEY = "forgepc.products";
+const CACHE_TIME_KEY = "forgepc.products.time";
+const CACHE_MAX_AGE = 5 * 60 * 1000; // 5 minuten
 
-// caching systeem
 function getCart() {
-    return JSON.parse(localStorage.getItem("cart")) || [];
+    return JSON.parse(localStorage.getItem(CART_KEY)) || [];
 }
 
 function saveCart(cart) {
-    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
 }
 
 function addToCart(product) {
     const cart = getCart();
-    const existingItem = cart.find(item => item.id === product.id);
+
+    const productId = Number(product.id);
+    const existingItem = cart.find(item => Number(item.id) === productId);
 
     if (existingItem) {
         existingItem.quantity += 1;
     } else {
         cart.push({
-            id: product.id,
+            id: productId,
             name: product.name,
             price: Number(product.price),
             image: product.image,
@@ -138,10 +153,34 @@ function addToCart(product) {
 }
 
 function removeFromCart(id) {
-    const cart = getCart().filter(item => item.id !== id);
+    const cart = getCart().filter(item => Number(item.id) !== Number(id));
     saveCart(cart);
 }
 
 function clearCart() {
-    localStorage.removeItem("cart");
+    localStorage.removeItem(CART_KEY);
+}
+
+function saveProductsCache(products) {
+    localStorage.setItem(PRODUCTS_CACHE_KEY, JSON.stringify(products));
+    localStorage.setItem(CACHE_TIME_KEY, Date.now().toString());
+}
+
+function getProductsCache() {
+    const cachedProducts = localStorage.getItem(PRODUCTS_CACHE_KEY);
+    const cachedTime = Number(localStorage.getItem(CACHE_TIME_KEY));
+
+    if (!cachedProducts || !cachedTime) {
+        return null;
+    }
+
+    const isExpired = Date.now() - cachedTime > CACHE_MAX_AGE;
+
+    if (isExpired) {
+        localStorage.removeItem(PRODUCTS_CACHE_KEY);
+        localStorage.removeItem(CACHE_TIME_KEY);
+        return null;
+    }
+
+    return JSON.parse(cachedProducts);
 }
