@@ -102,18 +102,10 @@ function pasFiltersToe() {
 }
 
 async function laadProducten() {
-    const cachedProducts = getProductsCache();
 
-    if (cachedProducts) {
-        alleProducten = cachedProducts;
-        renderProductCards(alleProducten);
-        setupFilters();
-        return;
-    }
 
     alleProducten = await runQuery("SELECT round(prijs * 1.21,2) AS prijs, productID, afbeelding, naam, merk, korteInfo, categorieID, tier, omschrijving FROM producten");
 
-    saveProductsCache(alleProducten);
     renderProductCards(alleProducten);
     setupFilters();
 }
@@ -161,17 +153,21 @@ function setupFilters() {
     });
 }
 
-laadProducten();
-
 
 async function searchProduct() {
-    const searchTerm = document.querySelector("#searchbar")
+    const searchTerm = document.querySelector("#searchbar").value.toLowerCase().trim();
     
-    const queryforsearching = `SELECT round(prijs * 1.21,2) AS prijs, productID, afbeelding, naam, merk, korteInfo, categorieID, tier, omschrijving FROM producten WHERE naam LIKE '%{searchTerm}%'`;
+    const queryforsearching = `SELECT round(prijs * 1.21,2) AS prijs, productID, afbeelding, naam, merk, korteInfo, categorieID, tier, omschrijving FROM producten WHERE naam LIKE '%${searchTerm}%'`;
 
-    const runsearchfunction = await runQuery(sql)
+    const runsearchfunction = await runQuery(queryforsearching);
 
     renderProductCards(runsearchfunction);
 }
 
-document.querySelector("#searchbar").addEventListener("input", searchProduct);
+const searchBar = document.querySelector("#searchbar");
+
+if(searchbar){
+    searchbar.addEventListener("input", searchProduct);
+}
+
+laadProducten();
