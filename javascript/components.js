@@ -9,7 +9,7 @@ function renderProductCards(producten) {
     if (!grid) return;
 
     if (!Array.isArray(producten) || producten.length === 0) {
-        grid.innerHTML = '<p class="productGridEmpty">Geen producten gevonden.</p>';
+        grid.innerHTML = '<p class="productGridEmpty">No products found.</p>';
         return;
     }
 
@@ -51,7 +51,7 @@ function pasFiltersToe() {
     const maxPrijs = Number(document.querySelector("#price")?.value) || 5000;
     
     // Geselecteerde merken
-    const geselecteerdeMerken = Array.from(document.querySelectorAll(".brand-checkbox:checked"))
+    const geselecteerdeMerken = Array.from(document.querySelectorAll(".brandCheckbox:checked"))
         .map(cb => cb.value.toLowerCase());
     
     // Geselecteerde tiers (knoppen met class 'active')
@@ -129,7 +129,7 @@ function setupFilters() {
     }
 
     // Merk checkboxes
-    const brandCheckboxes = document.querySelectorAll(".brand-checkbox");
+    const brandCheckboxes = document.querySelectorAll(".brandCheckbox");
     brandCheckboxes.forEach(cb => {
         cb.addEventListener("change", pasFiltersToe);
     });

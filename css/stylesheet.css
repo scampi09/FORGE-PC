@@ -1,9 +1,9 @@
 :root{
     --primary-Text-Color: rgb(255 157 47);
-    --secundary-text-color: rgb(175, 153, 139);
+    --secondary-text-color: rgb(175, 153, 139);
     --title-color: rgb(225, 255, 255);
     --primary-hover-color: rgb(245, 245, 245);/*for grey links*/
-    --secundary-hover-color: rgb(255, 184, 102); /*for ornage links*/
+    --secondary-hover-color: rgb(255, 184, 102); /*for orange links*/
     --background-color-dark: rgb(0, 0, 0);
     --background-color-light: rgb(19, 19, 19);
 }
@@ -57,7 +57,7 @@ header {
 }
 
 
-.navBalkHeader {
+.navBarHeader {
     display: flex;
     justify-content: center;
 }
@@ -122,7 +122,7 @@ header {
 }
 
 /* ALL THE TEXT FOR THE HERO */
-.infoHeroContianer{
+.infoHeroContainer{
     width: 90%;
     margin-left: 50px;
     display: flex;
@@ -137,7 +137,7 @@ header {
 }
 
 .promoTextHero{
-    display: inline-block; /* this makes it so the text doesnt go to the end*/
+    display: inline-block; /* this makes it so the text doesn't go to the end*/
     color: rgb(255 157 47);
     background: rgba(121, 82, 37, 0.50);
     border: 1px solid rgba(255, 158, 47, 0.349);
@@ -219,7 +219,7 @@ header {
 }
 
 .featuredTextLink:hover a{
-    color: var(--secundary-hover-color);
+    color: var(--secondary-hover-color);
 }
 
 /* FOR THE PHOTOS */
@@ -326,7 +326,7 @@ footer{
 
 .gridContainerFooter a{
     text-decoration: none;
-    color: var(--secundary-text-color);
+    color: var(--secondary-text-color);
 }
 
 .gridContainerFooter a:hover{
@@ -335,25 +335,25 @@ footer{
 }
 
 .titleFooterExtraText{
-    color: var(--secundary-text-color) !important;
+    color: var(--secondary-text-color) !important;
     font-size: 0.9rem;
 }
 
-/* COMPONENST SECTION */
-.hardwearFilterCategoryContainer{
+/* COMPONENTS SECTION */
+.hardwareFilterCategoryContainer{
     background-color: var(--background-color-light);
     width: 100%;
     padding: 25px 40px;
 
 }
 
-.hardwearFilterCategoryContainer nav{
+.hardwareFilterCategoryContainer nav{
     display: flex;
     gap: 48px;
     align-items: center;
 }
 
-.hardwearFilterCategoryContainer button{
+.hardwareFilterCategoryContainer button{
     padding-block:7px;
     padding-inline: 20px;
     border-radius: 20px;
@@ -374,7 +374,7 @@ footer{
     color: #8a8a8a;
     font-size: 12px;
 }
-.catalogBalk{
+.catalogBar{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -412,11 +412,11 @@ footer{
 }
 
 /* PRICE SLIDER */
-.price-filter {
+.priceFilter {
     padding: 20px;
 }
 
-.price-values {
+.priceValues {
     display: flex;
     justify-content: space-between;
     margin-top: 18px;
@@ -503,10 +503,6 @@ input[type="range"]::-moz-range-thumb {
 }
 
 
-.componentsTierContainer{
-    padding: 20px;
-}
-
 .componentsP2{
     color: #8a8a8a;
     font-size: 12px;
@@ -520,6 +516,7 @@ input[type="range"]::-moz-range-thumb {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 10px;
+    padding: 20px;
 }
 
 .gridItemButton{
@@ -537,7 +534,6 @@ input[type="range"]::-moz-range-thumb {
 .gridItemButton.active{
     background-color: rgba(121, 82, 37, 0.50);
     border: 1px solid rgba(255, 158, 47, 0.349);
-    padding: 7px 14px;
     border-radius: 2px;
     font-family: 'inter';
     cursor: pointer;
@@ -634,7 +630,7 @@ input[type="range"]::-moz-range-thumb {
     display: flex;
 }
 
-.ProductContainerLeft{
+.productContainerLeft{
     width: 60%;
 }
 
@@ -659,16 +655,16 @@ input[type="range"]::-moz-range-thumb {
     font-size: 14px;
     margin-top: 20px;
     margin-bottom: 30px;
-    color: var(--secundary-text-color) ;
+    color: var(--secondary-text-color) ;
 }
 
-.productDescriptionPrijsContainer{
+.productDescriptionPriceContainer{
     display: flex;
     gap: 5px;
     font-family: 'inter';
 }
 
-.productDescriptionPrijs{
+.productDescriptionPrice{
    font-size: 40px; 
    color: rgb(255, 255, 255); 
 }
@@ -677,7 +673,7 @@ input[type="range"]::-moz-range-thumb {
     font-size: 15px;
     margin-top: 30px;
     margin-left: 10px;
-    color: var(--secundary-text-color);
+    color: var(--secondary-text-color);
     text-decoration: line-through;
 }
 
@@ -690,7 +686,7 @@ input[type="range"]::-moz-range-thumb {
 
 /* ============ LEFT SIDE OF THE PRODUCTS ============*/
 
-.ProductContainerLeftImg{
+.productContainerLeftImg{
     width: 80%;
     margin: auto;
     margin-top: 49px;
@@ -699,7 +695,7 @@ input[type="range"]::-moz-range-thumb {
     border: 1px solid rgb(78, 78, 78);
 }
 
-.ProductContainerLeftImg img{
+.productContainerLeftImg img{
     border-radius: 10px;
 }
 
@@ -762,7 +758,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .contactTitle p {
-    color: var(--secundary-text-color);
+    color: var(--secondary-text-color);
     font-family: 'inter';
     font-size: 13px;
     line-height: 1.6;
@@ -829,7 +825,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .contactButton:hover {
-    background-color: var(--secundary-hover-color);
+    background-color: var(--secondary-hover-color);
     transition: 0.3s;
 }
 
@@ -867,7 +863,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .contactInfoLabel {
-    color: var(--secundary-text-color);
+    color: var(--secondary-text-color);
     font-size: 9px;
     margin-bottom: 5px;
 }
@@ -888,7 +884,7 @@ input[type="range"]::-moz-range-thumb {
 
 
 /* ============================================================
- RESPONSIVE DESINGING
+ RESPONSIVE DESIGNING
    ============================================================ */
 
 @media (max-width: 768px) {
@@ -910,7 +906,7 @@ input[type="range"]::-moz-range-thumb {
     .featuredPage,
     .mainPageComponents,
     .productPage,
-    .hardwearFilterCategoryContainer,
+    .hardwareFilterCategoryContainer,
     footer {
         width: 100%;
         max-width: 100%;
@@ -918,7 +914,7 @@ input[type="range"]::-moz-range-thumb {
 
     .containerHeader,
     .navListHeader,
-    .infoHeroContianer,
+    .infoHeroContainer,
     .infoHero,
     .featuredPhotoContainer,
     .componentsContainer,
@@ -957,7 +953,7 @@ input[type="range"]::-moz-range-thumb {
         font-size: 24px;
     }
 
-    .navBalkHeader {
+    .navBarHeader {
         width: 100%;
     }
 
@@ -998,7 +994,7 @@ input[type="range"]::-moz-range-thumb {
         z-index: 0;
     }
 
-    .infoHeroContianer {
+    .infoHeroContainer {
         position: relative;
         z-index: 1;
         width: 100%;
@@ -1119,22 +1115,22 @@ input[type="range"]::-moz-range-thumb {
 
 
     /* COMPONENTS PAGE */
-    .hardwearFilterCategoryContainer {
+    .hardwareFilterCategoryContainer {
         padding: 18px 20px;
     }
 
-    .hardwearFilterCategoryContainer nav {
+    .hardwareFilterCategoryContainer nav {
         flex-wrap: wrap;
         gap: 10px;
     }
 
-    .hardwearFilterCategoryContainer button {
+    .hardwareFilterCategoryContainer button {
         flex: 1 1 145px;
         padding-inline: 12px;
         min-height: 38px;
     }
 
-    .catalogBalk h3 {
+    .catalogBar h3 {
         font-size: 24px;
         padding: 20px;
     }
@@ -1154,7 +1150,7 @@ input[type="range"]::-moz-range-thumb {
         margin: 0 20px 36px;
     }
 
-    .price-filter,
+    .priceFilter,
     .brandFilter,
     .componentsTierContainer {
         width: 100%;
@@ -1164,11 +1160,11 @@ input[type="range"]::-moz-range-thumb {
         padding-right: 0;
     }
 
-    .price-values {
+    .priceValues {
         width: 100%;
     }
 
-    .price-values span:last-child {
+    .priceValues span:last-child {
         margin-left: auto;
     }
 
@@ -1207,7 +1203,7 @@ input[type="range"]::-moz-range-thumb {
         font-size: 20px;
         min-width: 0;
         margin-left: 0;
-        white-space: nowrap; /* zorgt dat text niet afbreekt en gwne lengte blijft*/
+        white-space: nowrap; /* zorgt dat tekst niet afbreekt en gewone lengte blijft*/
     }
 
     .productPrice {
@@ -1236,12 +1232,12 @@ input[type="range"]::-moz-range-thumb {
         min-height: auto;
     }
 
-    .ProductContainerLeft,
+    .productContainerLeft,
     .productContainerRight {
         width: 100%;
     }
 
-    .ProductContainerLeftImg {
+    .productContainerLeftImg {
         width: calc(100% - 40px);
         margin-top: 28px;
         padding: 12px;
@@ -1259,13 +1255,13 @@ input[type="range"]::-moz-range-thumb {
         overflow-wrap: break-word;
     }
 
-    .productDescriptionPrijsContainer {
+    .productDescriptionPriceContainer {
         flex-wrap: wrap;
         align-items: baseline;
         gap: 8px 12px;
     }
 
-    .productDescriptionPrijs {
+    .productDescriptionPrice {
         font-size: 32px;
     }
 
@@ -1319,7 +1315,7 @@ input[type="range"]::-moz-range-thumb {
         grid-column: span 4;
     }
 
-    .hardwearFilterCategoryContainer button {
+    .hardwareFilterCategoryContainer button {
         flex-basis: 100%;
     }
 
@@ -1339,7 +1335,7 @@ input[type="range"]::-moz-range-thumb {
         font-size: 27px;
     }
 
-    .productDescriptionPrijs {
+    .productDescriptionPrice {
         font-size: 28px;
     }
 }
@@ -1401,7 +1397,7 @@ input[type="range"]::-moz-range-thumb {
 
 /* nog kleiner */
 @media (max-width: 450px) {
-    .catalogBalk{
+    .catalogBar{
         flex-direction: column;
     }
 }
