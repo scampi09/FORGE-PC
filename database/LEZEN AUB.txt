@@ -1,0 +1,3 @@
+ik wist niet meer of ik "CREATE DATABASE / USE statement toevoegen" aan of uit moest zetten dus heb ik er 2 geexporteerd
+dbforgepc.sql staat "CREATE DATABASE / USE statement toevoegen" AAN
+dbforgepc(1).sql staat "CREATE DATABASE / USE statement toevoegen" UIT 
