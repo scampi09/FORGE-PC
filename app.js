@@ -17,7 +17,8 @@ const FALLBACK_PRODUCTEN = [
         naam: "GeForce Titanium RTX 4090",
         prijs: 2577.99,
         afbeelding: "photos/rtx4090.jpg",
-        korteInfo: "24GB GDDR6X - 450W TDP"
+        korteInfo: "24GB GDDR6X - 450W TDP",
+        tier: "Enthusiast"
     },
     {
         id: 2,
@@ -28,7 +29,8 @@ const FALLBACK_PRODUCTEN = [
         naam: "GeForce Titanium RTX 4080 Super",
         prijs: 1199.99,
         afbeelding: "photos/rtx4090.jpg",
-        korteInfo: "16GB GDDR6X - quiet cooling"
+        korteInfo: "16GB GDDR6X - quiet cooling",
+        tier: "Enthusiast"
     },
     {
         id: 3,
@@ -39,7 +41,8 @@ const FALLBACK_PRODUCTEN = [
         naam: "Precision Core i9-14900K",
         prijs: 599.99,
         afbeelding: "photos/ChatGPT Image 10 mei 2026, 11_25_58.png",
-        korteInfo: "24 cores - unlocked performance"
+        korteInfo: "24 cores - unlocked performance",
+        tier: "Professional"
     },
     {
         id: 4,
@@ -50,7 +53,8 @@ const FALLBACK_PRODUCTEN = [
         naam: "Precision Core Ryzen 7 7800X3D",
         prijs: 379.99,
         afbeelding: "photos/ChatGPT Image 10 mei 2026, 11_25_58.png",
-        korteInfo: "8 cores - 3D cache"
+        korteInfo: "8 cores - 3D cache",
+        tier: "Enthusiast"
     },
     {
         id: 5,
@@ -61,7 +65,8 @@ const FALLBACK_PRODUCTEN = [
         naam: "Flux DDR5 32GB 6000MHz",
         prijs: 129.99,
         afbeelding: "photos/ChatGPT Image 10 mei 2026, 12_23_08.png",
-        korteInfo: "32GB kit - low latency"
+        korteInfo: "32GB kit - low latency",
+        tier: "Studio"
     },
     {
         id: 6,
@@ -72,7 +77,8 @@ const FALLBACK_PRODUCTEN = [
         naam: "Flux Z790 Creator Motherboard",
         prijs: 289.99,
         afbeelding: "photos/ChatGPT Image 10 mei 2026, 12_30_35.png",
-        korteInfo: "Z790 - Wi-Fi - PCIe 5.0"
+        korteInfo: "Z790 - Wi-Fi - PCIe 5.0",
+        tier: "Professional"
     },
     {
         id: 7,
@@ -83,7 +89,10 @@ const FALLBACK_PRODUCTEN = [
         naam: "Precision NVMe 2TB SSD",
         prijs: 149.99,
         afbeelding: "photos/ChatGPT Image 10 mei 2026, 12_23_08.png",
-        korteInfo: "2TB - PCIe 4.0"
+        korteInfo: "2TB - PCIe 4.0",
+        tier: "Elite"
+
+
     }
 ];
 
@@ -93,7 +102,7 @@ async function runQuery(sql) {
     const controller = new AbortController();
     const timeoutId = setTimeout(function () {
         controller.abort();
-    }, 3000);
+    }, 15000);
 
     try {
         // De SQL als parameter meesturen in de URL
@@ -115,72 +124,4 @@ async function runQuery(sql) {
     } finally {
         clearTimeout(timeoutId);
     }
-}
-
-// caching systeem + winkelwagen
-const CART_KEY = "forgepc.cart";
-const PRODUCTS_CACHE_KEY = "forgepc.products";
-const CACHE_TIME_KEY = "forgepc.products.time";
-const CACHE_MAX_AGE = 5 * 60 * 1000; // 5 minuten
-
-function getCart() {
-    return JSON.parse(localStorage.getItem(CART_KEY)) || [];
-}
-
-function saveCart(cart) {
-    localStorage.setItem(CART_KEY, JSON.stringify(cart));
-}
-
-function addToCart(product) {
-    const cart = getCart();
-
-    const productId = Number(product.id);
-    const existingItem = cart.find(item => Number(item.id) === productId);
-
-    if (existingItem) {
-        existingItem.quantity += 1;
-    } else {
-        cart.push({
-            id: productId,
-            name: product.name,
-            price: Number(product.price),
-            image: product.image,
-            quantity: 1
-        });
-    }
-
-    saveCart(cart);
-}
-
-function removeFromCart(id) {
-    const cart = getCart().filter(item => Number(item.id) !== Number(id));
-    saveCart(cart);
-}
-
-function clearCart() {
-    localStorage.removeItem(CART_KEY);
-}
-
-function saveProductsCache(products) {
-    localStorage.setItem(PRODUCTS_CACHE_KEY, JSON.stringify(products));
-    localStorage.setItem(CACHE_TIME_KEY, Date.now().toString());
-}
-
-function getProductsCache() {
-    const cachedProducts = localStorage.getItem(PRODUCTS_CACHE_KEY);
-    const cachedTime = Number(localStorage.getItem(CACHE_TIME_KEY));
-
-    if (!cachedProducts || !cachedTime) {
-        return null;
-    }
-
-    const isExpired = Date.now() - cachedTime > CACHE_MAX_AGE;
-
-    if (isExpired) {
-        localStorage.removeItem(PRODUCTS_CACHE_KEY);
-        localStorage.removeItem(CACHE_TIME_KEY);
-        return null;
-    }
-
-    return JSON.parse(cachedProducts);
 }

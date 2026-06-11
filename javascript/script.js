@@ -9,7 +9,7 @@ const buttonStorage = document.querySelector("#buttonStorage");
 const price = document.querySelector("#price");
 const priceValue = document.querySelector("#priceValue");
 const buttonEnthusiast = document.querySelector("#buttonEnthusiast");
-const buttonProffesional = document.querySelector("#buttonProffesional");
+const buttonProfessional = document.querySelector("#buttonProfessional");
 const buttonStudio = document.querySelector("#buttonStudio");
 const buttonElite = document.querySelector("#buttonElite");
 const productAddToCartButton = document.querySelector("#productAddToCartButton");
@@ -22,19 +22,6 @@ function getProductValue(product, keys, fallback) {
     }
 
     return fallback;
-}
-
-function formatEuro(value) {
-    const number = Number(value);
-
-    if (Number.isNaN(number)) {
-        return "\u20AC0,00";
-    }
-
-    return number.toLocaleString("nl-BE", {
-        style: "currency",
-        currency: "EUR"
-    });
 }
 
 async function laadProductDetail() {
@@ -205,9 +192,9 @@ if (buttonEnthusiast) {
     });
 }
 
-if (buttonProffesional) {
-    buttonProffesional.addEventListener("click", function() {
-        buttonProffesional.classList.toggle("active");
+if (buttonProfessional) {
+    buttonProfessional.addEventListener("click", function() {
+        buttonProfessional.classList.toggle("active");
     });
 }
 
@@ -225,22 +212,7 @@ if (buttonElite) {
 
 
 if (productAddToCartButton) {
-    productAddToCartButton.addEventListener("click", function () {
-        if (!currentProduct) {
-            alert("Product is nog niet geladen");
-            return;
-        }
-
-        addToCart({
-            id: currentProduct.productID,
-            name: currentProduct.naam,
-            price: currentProduct.prijs,
-            image: currentProduct.afbeelding
-        });
-
-        alert("Toegevoegd aan winkelmandje");
-    });
-
+    
     productAddToCartButton.addEventListener("mousedown", function() {
         productAddToCartButton.style.backgroundColor = "rgb(196, 109, 11)";
     });

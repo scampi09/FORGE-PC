@@ -14,9 +14,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script src="app.js?v=2" defer></script>
-    <script src="javascript/components.js?v=2" defer></script>
-    <script src="javascript/script.js?v=2" defer></script>
+    <script src="app.js?v=3" defer></script>
+    <script src="javascript/components.js?v=3" defer></script>
+    <script src="javascript/script.js?v=3" defer></script>
     <title>FORGE PC Components</title>
 </head>
 <body>
@@ -52,6 +52,9 @@
     <section class="mainPageComponents">
         <div class="catalogBalk">
             <h3>FILTERS</h3>
+            <div class="searchbar">
+                <input type="text" placeholder="Search.." size="50" id="searchbar">
+            </div>
         </div>
         <div class="componentsContainer">
             <div class="filterSidebarComponents">
@@ -74,24 +77,30 @@
                         <p class="componentsP">BRAND</p>
                         
                         <label class="customCheckbox">
-                            <input type="checkbox" checked>
+                            <input type="checkbox" class="brand-checkbox" value="intel">
                             <span class="checkmark">
                             </span>
-                            Forge Titanium
+                            intel
                         </label>
 
                         <label class="customCheckbox">
-                            <input type="checkbox">
+                            <input type="checkbox" class="brand-checkbox" value="amd">
                             <span class="checkmark">
                             </span>
-                            flux engeneering
+                            amd
                         </label>
 
                         <label class="customCheckbox">
-                            <input type="checkbox">
+                            <input type="checkbox" class="brand-checkbox" value="asus">
                             <span class="checkmark">
                             </span>
-                            Precision core
+                            asus
+                        </label>
+                        <label class="customCheckbox">
+                            <input type="checkbox" class="brand-checkbox" value="samsung">
+                            <span class="checkmark">
+                            </span>
+                            samsung
                         </label>
                     </div>
                     <p class="componentsP2">PERFORMANCE TIER</p>
@@ -101,8 +110,8 @@
                         <button id="buttonEnthusiast" class="gridItemButton">
                             ENTHUSIAST
                         </button>
-                        <button id="buttonProffesional" class="gridItemButton">
-                            PROFFESIONAL    
+                        <button id="buttonProfessional" class="gridItemButton">
+                            PROFESSIONAL    
                         </button>
                         <button id="buttonStudio"
                         class="gridItemButton">

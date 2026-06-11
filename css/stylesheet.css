@@ -376,10 +376,34 @@ footer{
     color: #8a8a8a;
     font-size: 12px;
 }
+.catalogBalk{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .catalogBalk h3{
     color: var(--title-color);
     font-size: 30px;
     padding: 20px;
+}
+
+/* DE ZOEKBALK NAAST FILTERS*/
+
+.searchbar{
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.searchbar input{
+    border-radius: 10px;
+    background-color: #1c1b1b;
+    border: none;
+    color: rgb(169, 169, 169);
+    padding-left: 19px;
+    padding-block: 10px;
+    outline: none;
+
 }
 
 .componentsContainer{
@@ -389,7 +413,6 @@ footer{
 .filterSidebarComponents{
     width: 30%;
 }
-
 
 /* PRICE SLIDER */
 .price-filter {
