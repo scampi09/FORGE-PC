@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
+    <!-- ======== PAGE SETTINGS FOR THE PRODUCT ADMIN PAGE ======== -->
     <meta charset="UTF-8">
     <title>Producten beheren</title>
 </head>
 <body>
 
+    <!-- ======== ADMIN PAGE TITLE AND BACK LINK ======== -->
     <h1>Producten beheren</h1>
 
     <p><a href="index.html">Terug naar de lijst</a></p>
 
-    <!-- Formulier: toevoegen OF bewerken -->
+    <!-- ======== FORM TO ADD OR EDIT A PRODUCT ======== -->
     <h2>Product toevoegen / bewerken</h2>
 
-    <!-- Verborgen veld: leeg = toevoegen, gevuld = bewerken -->
+    <!-- ======== PRODUCT ID SHOWS IF THE FORM IS ADDING OR EDITING ======== -->
     <p>
         productID:
         <input readonly id="productId" placeholder="leeg laten voor nieuw product">
     </p>
 
+    <!-- ======== PRODUCT FORM FIELDS ======== -->
     <p>
         Naam:
         <input type="text" id="naam" >
@@ -60,19 +63,19 @@
         <button id="annuleerKnop">Annuleren</button>
     </p>
 
-    <!-- Lijst met alle producten + bewerk/verwijder knoppen -->
+    <!-- ======== PRODUCT LIST WITH EDIT AND DELETE BUTTONS ======== -->
     <h2>Alle producten</h2>
     <ul id="productenLijst"></ul>
 
-    <!-- Eerst de helper, dan de CRUD-functies -->
+    <!-- ======== JAVASCRIPT FILES FOR API HELPERS AND CRUD FUNCTIONS ======== -->
     <script src="app.js"></script>
     <script src="javascript/crud.js"></script>
     <script>
-        // Koppel de knoppen aan hun functies
+        // ======== CONNECT THE FORM BUTTONS TO THEIR JAVASCRIPT FUNCTIONS ========
         document.getElementById("opslaanKnop").addEventListener("click", productOpslaan);
         document.getElementById("annuleerKnop").addEventListener("click", formulierLeegmaken);
 
-        // Toon de lijst zodra de pagina geladen is
+        // ======== SHOW THE PRODUCT LIST WHEN THE PAGE LOADS ========
         toonBeheerLijst();
     </script>
 

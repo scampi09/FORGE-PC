@@ -1,9 +1,9 @@
 :root{
-    --primary-Text-Color: rgb(255 157 47);
+    --primary-Text-Color: rgb(255, 157, 47);
     --secondary-text-color: rgb(175, 153, 139);
     --title-color: rgb(225, 255, 255);
     --primary-hover-color: rgb(245, 245, 245);/*for grey links*/
-    --secondary-hover-color: rgb(255, 184, 102); /*for orange links*/
+    --secondary-hover-color: rgb(255, 184, 102); /*for primary links*/
     --background-color-dark: rgb(0, 0, 0);
     --background-color-light: rgb(19, 19, 19);
 }
@@ -13,11 +13,11 @@ html {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    background-color: rgb(0, 0, 0);
+    background-color: var(--background-color-dark);
 }
 
 body {
-    background-color: rgb(0, 0, 0);
+    background-color: var(--background-color-dark);
     font-family: 'Inter', sans-serif;
 }
 
@@ -41,6 +41,11 @@ header {
     background-color: var(--background-color-dark);
 }
 
+/*dit zorgt ervoor dat de 'open pagina' geel is */
+.activePage{
+    color: rgb(255, 157, 47) !important;
+    font-size: 16px !important;
+}
 
 .containerHeader {
     display: flex;
@@ -64,7 +69,7 @@ header {
 
 .navListHeader {
     text-decoration: none;
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 12px;
     display: flex;
     gap: 50px;
@@ -74,7 +79,7 @@ header {
 
 .navListItemHeader a{
     text-decoration: none;
-    color: #a6a6a6;
+    color: rgb(166, 166, 166);
     font-size: 15px;
 }
 
@@ -114,7 +119,7 @@ header {
     background-image: url("../photos/heroBackground.png");
     background-size: contain;
     background-position: center;
-    background-color: orange;
+    background-color: rgb(255, 165, 0);
     background-repeat: no-repeat;
     background-color: var(--background-color-dark);
     border-top: 2px solid rgb(53, 53, 53);
@@ -138,7 +143,7 @@ header {
 
 .promoTextHero{
     display: inline-block; /* this makes it so the text doesn't go to the end*/
-    color: rgb(255 157 47);
+    color: var(--primary-Text-Color);
     background: rgba(121, 82, 37, 0.50);
     border: 1px solid rgba(255, 158, 47, 0.349);
     border-radius: 5px;
@@ -155,7 +160,7 @@ header {
 }
 
 .titleHero{
-    color: white;
+    color: rgb(255, 255, 255);
     font-family: 'Inter';
 
 }
@@ -183,9 +188,9 @@ header {
 }
 
 .buttonHeroLeft:hover, .buttonHeroRight:hover{
-    background-color: rgb(255 157 47);
-    border: 1px solid rgb(255 157 47);
-    color: black;
+    background-color: var(--primary-Text-Color);
+    border: 1px solid var(--primary-Text-Color);
+    color: var(--background-color-dark);
 
 }
 
@@ -208,13 +213,13 @@ header {
     display: flex;
     justify-content: space-between;
     font-size: 12px;
-    color: rgb(175, 153, 139);
+    color: var(--secondary-text-color);
     margin-top: 5px;
 }
 
 .featuredTextLink a{
     text-decoration: none;
-    color: rgb(255 157 47);
+    color: var(--primary-Text-Color);
     margin-right: 50px;
 }
 
@@ -253,7 +258,7 @@ header {
     left: 30px;
     top: 370px;
     bottom: 80px;
-    color: white;
+    color: rgb(255, 255, 255);
     z-index: 10;
     font-size: 25px;
     margin-bottom: 30px;
@@ -280,7 +285,7 @@ header {
     position: absolute;
     left: 30px;
     bottom: 145px;
-    color: white;
+    color: rgb(255, 255, 255);
     z-index: 10;
     font-size: 25px;    
 }
@@ -359,8 +364,8 @@ footer{
     border-radius: 20px;
     font-size: 11px;
     background-color: var(--background-color-light);
-    border: 1px solid #8a8a8a;
-    color: #8a8a8a;
+    border: 1px solid rgb(138, 138, 138);
+    color: rgb(138, 138, 138);
 }
 
 /* MAIN PAGE FOR COMPONENTS*/
@@ -371,7 +376,7 @@ footer{
 
 /* every p for this page */
 .componentsP{
-    color: #8a8a8a;
+    color: rgb(138, 138, 138);
     font-size: 12px;
 }
 .catalogBar{
@@ -380,10 +385,10 @@ footer{
     justify-content: space-between;
 }
 
-.catalogBalk h3{
-    color: var(--title-color);
-    font-size: 30px;
-    padding: 20px;
+.catalogBar h2{
+    color: var(--title-color) ;
+    font-size: 30px ;
+    padding: 20px ;
 }
 
 /* DE ZOEKBALK NAAST FILTERS*/
@@ -395,7 +400,7 @@ footer{
 
 .searchbar input{
     border-radius: 10px;
-    background-color: #1c1b1b;
+    background-color: rgb(28, 27, 27);
     border: none;
     color: rgb(169, 169, 169);
     padding-left: 19px;
@@ -420,7 +425,7 @@ footer{
     display: flex;
     justify-content: space-between;
     margin-top: 18px;
-    color: #8a8a8a;
+    color: rgb(138, 138, 138);
     font-size: 14px;
 }
 
@@ -430,10 +435,10 @@ input[type="range"] {
   appearance: none;
   background: linear-gradient(
     to right,
-    rgb(255, 157, 47) 0%,
-    rgb(255, 157, 47) 80%,
-    #333 80%,
-    #333 100%
+    var(--primary-Text-Color) 0%,
+    var(--primary-Text-Color) 80%,
+    rgb(51, 51, 51) 80%,
+    rgb(51, 51, 51) 100%
   );
   border-radius: 10px;
   outline: none;
@@ -444,8 +449,8 @@ input[type="range"]::-webkit-slider-thumb {
   appearance: none;
   width: 18px;
   height: 18px;
-  background: rgb(255, 157, 47);
-  border: 3px solid #1f1f1f;
+  background: var(--primary-Text-Color);
+  border: 3px solid rgb(31, 31, 31);
   border-radius: 50%;
   cursor: pointer;
 }
@@ -454,8 +459,8 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"]::-moz-range-thumb {
   width: 18px;
   height: 18px;
-  background: rgb(255, 157, 47);
-  border: 3px solid #1f1f1f;
+  background: var(--primary-Text-Color);
+  border: 3px solid rgb(31, 31, 31);
   border-radius: 50%;
   cursor: pointer;
 }
@@ -475,7 +480,7 @@ input[type="range"]::-moz-range-thumb {
   display: flex;
   align-items: center;
   gap: 13px;
-  color: #9b9b9b;
+  color: rgb(155, 155, 155);
   font-size: 14px;
   cursor: pointer;
   position: relative;
@@ -490,21 +495,21 @@ input[type="range"]::-moz-range-thumb {
 .checkmark {
   width: 12px;
   height: 12px;
-  border: 1px solid #333;
+  border: 1px solid rgb(51, 51, 51);
   border-radius: 1px;
   transition: 0.2s;
 }
 
 /* aangeduid */
 .customCheckbox input:checked + .checkmark {
-  background: rgb(255, 157, 47);
-  border-color: rgb(255, 157, 47);
+  background: var(--primary-Text-Color);
+  border-color: var(--primary-Text-Color);
   margin: 4px;
 }
 
 
 .componentsP2{
-    color: #8a8a8a;
+    color: rgb(138, 138, 138);
     font-size: 12px;
     padding-left: 20px;
     padding-top: 20px;
@@ -528,7 +533,7 @@ input[type="range"]::-moz-range-thumb {
     cursor: pointer;
     transition: 0.3s;
     font-size: 11px;
-    color: #9b9b9b ;
+    color: rgb(155, 155, 155);
 }
 
 .gridItemButton.active{
@@ -539,7 +544,7 @@ input[type="range"]::-moz-range-thumb {
     cursor: pointer;
     transition: 0.3s;
     font-size: 11px;
-    color: rgb(255 157 47);
+    color: var(--primary-Text-Color);
 }
 
 .productGridComponents{
@@ -551,7 +556,7 @@ input[type="range"]::-moz-range-thumb {
 
 .productGridItem{
     width: 95%; 
-    background-color: #1c1b1b;
+    background-color: rgb(28, 27, 27);
     margin-top: 10px;
     min-height: 8rem;
 }
@@ -576,7 +581,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .productGridItem h3{
-    color: rgb(225, 255, 255);
+    color: var(--title-color);
     font-size: 28px;
     padding-left: 18px;
     font-family: "Montserrat", sans-serif;
@@ -608,7 +613,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .productPrice p{
-    color: rgb(225, 255, 255);
+    color: var(--title-color);
     font-weight: 600;
     font-size: 26px;
     margin-left: 20px;
@@ -815,7 +820,7 @@ input[type="range"]::-moz-range-thumb {
     background-color: var(--primary-Text-Color);
     border: none;
     border-radius: 4px;
-    color: rgb(0, 0, 0);
+    color: var(--background-color-dark);
     cursor: pointer;
     font-family: 'Inter';
     font-size: 10px;
@@ -839,6 +844,7 @@ input[type="range"]::-moz-range-thumb {
     display: block;
     width: 100%;
     height: 260px;
+    border: none;
 }
 
 .contactInfo {
@@ -895,7 +901,7 @@ input[type="range"]::-moz-range-thumb {
     body {
         width: 100%;
         overflow-x: hidden;
-        background-color: rgb(0, 0, 0);
+        background-color: var(--background-color-dark);
     }
 
     img {

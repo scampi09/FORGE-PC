@@ -87,7 +87,7 @@ laadProductDetail();
 
 if (buttonHardWear) {
     buttonHardWear.style.backgroundColor = "rgba(121, 82, 37, 0.50)";
-    buttonHardWear.style.color = "rgb(255 157 47)";
+    buttonHardWear.style.color = "rgb(255, 157, 47)";
     buttonHardWear.style.border = "1px solid rgba(255, 158, 47, 0.349)";
 }
 
@@ -107,8 +107,8 @@ function resetButtons() {
         }
 
         button.style.backgroundColor = "rgb(19, 19, 19)";
-        button.style.color = "#8a8a8a";
-        button.style.borderColor = "#8a8a8a";
+        button.style.color = "rgb(138, 138, 138)";
+        button.style.borderColor = "rgb(138, 138, 138)";
     });
 }
 
@@ -120,7 +120,7 @@ function activateButton(button) {
     resetButtons();
 
     button.style.backgroundColor = "rgba(121, 82, 37, 0.50)";
-    button.style.color = "rgb(255 157 47)";
+    button.style.color = "rgb(255, 157, 47)";
     button.style.border = "1px solid rgba(255, 158, 47, 0.349)";
 }
 
@@ -179,8 +179,8 @@ if (price && priceValue) {
             to right,
             rgb(255, 157, 47) 0%,
             rgb(255, 157, 47) ${percent}%,
-            #333 ${percent}%,
-            #333 100%
+            rgb(51, 51, 51) ${percent}%,
+            rgb(51, 51, 51) 100%
         )`;
     });
 }

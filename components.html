@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/stylesheet.css">
@@ -15,15 +16,22 @@
     <title>FORGE PC Components</title>
 </head>
 <body>
+    <!-- ======== HEADER WITH LOGO, NAVIGATION AND ICONS ======== -->
     <header>
         <div class="containerHeader">
             <h1 class="titleHeader"><a href="index.html">FORGE PC</a></h1>
+                <!-- ======== MAIN NAVIGATION LINKS ======== -->
                 <nav class="navBarHeader">
                     <ul class="navListHeader">
-                        <li class="navListItemHeader"><a style="color: rgb(255, 157, 47); font-size: 16px;" href="components.html">components</a></li>
-                        <li class="navListItemHeader"><a href="contact.html">contact us</a></li>
+                        <li class="navListItemHeader">
+                            <a class="activePage" href="components.html">components</a>
+                        </li>
+                        <li class="navListItemHeader">
+                            <a href="contact.html">contact us</a>
+                        </li>
                     </ul>
                 </nav>
+                <!-- ======== HEADER ICON LINKS ======== -->
                 <div class="iconsHeader">
                     <a href="cart.html"><img 
                     src="photos/shopping-cart.png" alt="pictogram for a shopping cart" class="cartIcon"></a>
@@ -33,6 +41,7 @@
                 </div>
         </div>
     </header>
+    <!-- ======== CATEGORY FILTER BUTTONS FOR COMPONENT TYPES ======== -->
     <section class="hardwareFilterCategoryContainer">
         <nav>
             <button type="button" id="buttonHardWear"> ALL HARDWARE</button>
@@ -43,15 +52,19 @@
             <button type="button" id="buttonStorage"> STORAGE</button>
         </nav>
     </section>
+    <!-- ======== COMPONENTS PAGE WITH SEARCH, FILTERS AND PRODUCTS ======== -->
     <section class="mainPageComponents">
+        <!-- ======== FILTER TITLE AND SEARCH BAR ======== -->
         <div class="catalogBar">
-            <h3>FILTERS</h3>
+            <h2>FILTERS</h2>
             <div class="searchbar">
                 <input type="text" placeholder="Search.." size="50" id="searchbar">
             </div>
         </div>
+        <!-- ======== LEFT FILTER SIDEBAR AND RIGHT PRODUCT GRID ======== -->
         <div class="componentsContainer">
             <div class="filterSidebarComponents">
+                <!-- ======== PRICE RANGE FILTER ======== -->
                 <div class="priceFilter">
                     <p class="componentsP">PRICE RANGE </p>
                     <input 
@@ -67,6 +80,7 @@
                         <span>&#8364;<span id="priceValue">4000</span></span>
                     </div>
                 </div>
+                    <!-- ======== BRAND CHECKBOX FILTERS ======== -->
                     <div class="brandFilter">
                         <p class="componentsP">BRAND</p>
                         
@@ -97,6 +111,7 @@
                             samsung
                         </label>
                     </div>
+                    <!-- ======== PERFORMANCE TIER BUTTON FILTERS ======== -->
                     <p class="componentsP2">PERFORMANCE TIER</p>
                     <div class="componentsTierContainer">
                         
@@ -117,18 +132,21 @@
                     </div>
             </div>
 
-            <!-- Producten worden hier dynamisch uit de database geladen -->
+            <!-- ======== PRODUCTS ARE LOADED HERE FROM JAVASCRIPT AND THE DATABASE ======== -->
             <div class="productGridComponents" id="productGrid"></div>
             
-            <!-- Voorbeeld van een productitem, dit wordt dynamisch gegenereerd met JavaScript -->
+            <!-- ======== PRODUCT CARDS ARE GENERATED DYNAMICALLY WITH JAVASCRIPT ======== -->
         </div>
     </section>
+    <!-- ======== FOOTER WITH BRAND TEXT, LINKS AND POLICIES ======== -->
     <footer>
         <div class="gridContainerFooter">
+            <!-- ======== FOOTER BRAND DESCRIPTION ======== -->
             <div class="titleFooter">
                 <h2>Forge PC</h2>
                 <p class="titleFooterExtraText">engineered for absolute <br> performance and <br> uncompromising performance</p>
             </div>
+            <!-- ======== FOOTER QUICK LINKS ======== -->
             <div class="quickLinksFooter">
                  <p>Quick links</p>
                  <ul>
@@ -138,6 +156,7 @@
                     <li><a href="#">support</a></li>
                  </ul>
             </div>
+            <!-- ======== FOOTER POLICY LINKS ======== -->
             <div class="policiesFooter">
                 <p>policies</p>
                 <ul>
@@ -147,9 +166,10 @@
                     <li><a href="#">Warranty</a></li>
                 </ul>
             </div>
+            <!-- ======== FOOTER SOCIAL LINKS PLACEHOLDER ======== -->
             <div class="socials">
                 <p>socials</p>
-                <!--nothing yet-->
+                <!-- ======== SOCIAL LINKS WILL BE ADDED HERE LATER ======== -->
             </div>
         </div>
     </footer>   
