@@ -1,9 +1,10 @@
+/* global colors used throughout the website */
 :root{
     --primary-Text-Color: rgb(255, 157, 47);
     --secondary-text-color: rgb(175, 153, 139);
     --title-color: rgb(225, 255, 255);
-    --primary-hover-color: rgb(245, 245, 245);/*for grey links*/
-    --secondary-hover-color: rgb(255, 184, 102); /*for primary links*/
+    --primary-hover-color: rgb(245, 245, 245); /* for grey links */
+    --secondary-hover-color: rgb(255, 184, 102); /* for primary links */
     --background-color-dark: rgb(0, 0, 0);
     --background-color-light: rgb(19, 19, 19);
 }
@@ -29,24 +30,26 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
+/* default image behavior for page images */
 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* HEADER */
+/* header background and main header layout */
 header {
     display: flex;
     background-color: var(--background-color-dark);
 }
 
-/*dit zorgt ervoor dat de 'open pagina' geel is */
+/* active navigation link for the current page */
 .activePage{
     color: rgb(255, 157, 47) !important;
     font-size: 16px !important;
 }
 
+/* header content spacing and alignment */
 .containerHeader {
     display: flex;
     align-items: center;
@@ -55,13 +58,18 @@ header {
     width: 100%;
 }
 
+/* forge pc logo text in the header */
 .titleHeader a{
     color: rgb(255, 255, 255);
     font-family: 'Space Grotesk', sans-serif;
     text-decoration: none;
 }
 
+.titleHeader{
+    font-size: 30px;
+}
 
+/* header navigation positioning */
 .navBarHeader {
     display: flex;
     justify-content: center;
@@ -83,13 +91,14 @@ header {
     font-size: 15px;
 }
 
+/* header link hover state */
 .navListItemHeader a:hover{
     color: var(--primary-hover-color);
     transition: 0.3s;
 }
 
 
-/* HEADER ICONS */
+/* cart and user icons in the header */
 .iconsHeader{
     display: flex;
     gap: 15px;
@@ -114,8 +123,9 @@ header {
     padding: 3px;
 }       
 
+/* hero background img*/
 .hero {
-    height: 100vh;
+    min-height: 100dvh; /*dynamic viewport height, beter voor moderne browsers dan: height(100vh)*/
     background-image: url("../photos/heroBackground.png");
     background-size: contain;
     background-position: center;
@@ -126,7 +136,7 @@ header {
     display: flex;
 }
 
-/* ALL THE TEXT FOR THE HERO */
+/* hero text  */
 .infoHeroContainer{
     width: 90%;
     margin-left: 50px;
@@ -142,7 +152,7 @@ header {
 }
 
 .promoTextHero{
-    display: inline-block; /* this makes it so the text doesn't go to the end*/
+    display: inline-block;
     color: var(--primary-Text-Color);
     background: rgba(121, 82, 37, 0.50);
     border: 1px solid rgba(255, 158, 47, 0.349);
@@ -170,7 +180,7 @@ header {
     color: rgba(175, 153, 139);
 }
 
-/* the 2 buttons on the hero page */
+/* two  buttons in the hero section */
 .buttonsHeroContainer {
     margin-top: 50px;
 }
@@ -194,7 +204,7 @@ header {
 
 }
 
-/* FEATURED BUILDS PAGE */
+/* featured builds section on the home page */
 .featuredPage{
     background-color: var(--background-color-light);
     display: flex;
@@ -227,7 +237,7 @@ header {
     color: var(--secondary-hover-color);
 }
 
-/* FOR THE PHOTOS */
+/* featured build image cards */
 .featuredPhotoContainer{
     margin-inline: 50px;
     display: flex;
@@ -252,7 +262,6 @@ header {
     border-radius: 10px;
 }
 
-/* text for the photo's */
 .featuredPhotoLeft h3 {
     position: absolute;
     left: 30px;
@@ -291,15 +300,13 @@ header {
 }
 
 
-
-
-
-/* FOOTER */
+/* footer background plsu spacing */
 footer{
     background-color: var(--background-color-dark);
     padding-bottom: 3rem;
 }
 
+/* footer grid with brand links and policies */
 .gridContainerFooter{
     padding-top: 50px;
 }
@@ -344,7 +351,7 @@ footer{
     font-size: 0.9rem;
 }
 
-/* COMPONENTS SECTION */
+/* top category filter bar on the components page */
 .hardwareFilterCategoryContainer{
     background-color: var(--background-color-light);
     width: 100%;
@@ -368,13 +375,13 @@ footer{
     color: rgb(138, 138, 138);
 }
 
-/* MAIN PAGE FOR COMPONENTS*/
+/* main components page background */
 .mainPageComponents{
     width: 100%;
     background-color: var(--background-color-dark);
 }
 
-/* every p for this page */
+/* small filter label  */
 .componentsP{
     color: rgb(138, 138, 138);
     font-size: 12px;
@@ -385,13 +392,13 @@ footer{
     justify-content: space-between;
 }
 
-.catalogBar h2{
+.catalogBar h1{
     color: var(--title-color) ;
     font-size: 30px ;
     padding: 20px ;
 }
 
-/* DE ZOEKBALK NAAST FILTERS*/
+/* search bar next to the filter title */
 
 .searchbar{
     padding: 20px;
@@ -416,7 +423,7 @@ footer{
     width: 30%;
 }
 
-/* PRICE SLIDER */
+/* price range filter  */
 .priceFilter {
     padding: 20px;
 }
@@ -429,14 +436,14 @@ footer{
     font-size: 14px;
 }
 
-input[type="range"] {
+input[type="range"] { /* type range is just for teh whole slider*/
   width: 100%;
   height: 6px;
-  appearance: none;
+  appearance: none; /* you delete the standard style*/
   background: linear-gradient(
     to right,
     var(--primary-Text-Color) 0%,
-    var(--primary-Text-Color) 80%,
+    var(--primary-Text-Color) 80%, /* this is for the color switching when you go left or right*/
     rgb(51, 51, 51) 80%,
     rgb(51, 51, 51) 100%
   );
@@ -444,7 +451,7 @@ input[type="range"] {
   outline: none;
 }
 
-/* Chrome / Edge */
+/* price slider thumb for chrome and edge */
 input[type="range"]::-webkit-slider-thumb {
   appearance: none;
   width: 18px;
@@ -455,8 +462,8 @@ input[type="range"]::-webkit-slider-thumb {
   cursor: pointer;
 }
 
-/* Firefox */
-input[type="range"]::-moz-range-thumb {
+/* price slider thumb for firefox */
+input[type="range"]::-moz-range-thumb { /* same thing just for firefox*/
   width: 18px;
   height: 18px;
   background: var(--primary-Text-Color);
@@ -466,7 +473,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 
-/* BRAND thing UNDER SLIDER*/
+/* brand checkbox filter under the price slider */
 
 .brandFilter {
   display: flex;
@@ -486,12 +493,12 @@ input[type="range"]::-moz-range-thumb {
   position: relative;
 }
 
-/* hide default checkbox */
+/* hidden default checkbox for custom checkbox style */
 .customCheckbox input {
   display: none;
 }
 
-/* custom square */
+/* custom checkbox square */
 .checkmark {
   width: 12px;
   height: 12px;
@@ -500,8 +507,8 @@ input[type="range"]::-moz-range-thumb {
   transition: 0.2s;
 }
 
-/* aangeduid */
-.customCheckbox input:checked + .checkmark {
+/* checked state for the custom checkbox */
+.customCheckbox input:checked + .checkmark { /*SELECT checkmark when customcheckbox is checked*/
   background: var(--primary-Text-Color);
   border-color: var(--primary-Text-Color);
   margin: 4px;
@@ -516,6 +523,7 @@ input[type="range"]::-moz-range-thumb {
 
 }
 
+/* performance tier button grid */
 .componentsTierContainer{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -524,6 +532,7 @@ input[type="range"]::-moz-range-thumb {
     padding: 20px;
 }
 
+/* performance tier filter buttons */
 .gridItemButton{
     background-color: var(--background-color-dark);
     border: 1px solid rgba(255, 158, 47, 0.349);
@@ -547,6 +556,7 @@ input[type="range"]::-moz-range-thumb {
     color: var(--primary-Text-Color);
 }
 
+/* product grid on the components page */
 .productGridComponents{
     width: 70%;
     display: grid;
@@ -554,6 +564,7 @@ input[type="range"]::-moz-range-thumb {
     gap: 2px;
 }
 
+/* single product card in the product grid */
 .productGridItem{
     width: 95%; 
     background-color: rgb(28, 27, 27);
@@ -604,6 +615,7 @@ input[type="range"]::-moz-range-thumb {
     margin-bottom: 10px;
 }
 
+/* price row inside each product card */
 .productPrice{
     display: flex;
     justify-content: space-between;
@@ -628,7 +640,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 
-/* FOR THE SINGLE PRODUCT PAGE */
+/* single product detail page layout */
 
 .productPage{
     background-color: var(--background-color-light);
@@ -651,7 +663,7 @@ input[type="range"]::-moz-range-thumb {
     font-size: 12px;
 }
 
-.productContainerRight h3{
+.productContainerRight h1{
     color: rgb(225, 225, 225);
     font-size: 40px;
 }
@@ -689,7 +701,7 @@ input[type="range"]::-moz-range-thumb {
     font-family: 'Inter';
 }
 
-/* ============ LEFT SIDE OF THE PRODUCTS ============*/
+/* product detail image panel */
 
 .productContainerLeftImg{
     width: 80%;
@@ -704,6 +716,7 @@ input[type="range"]::-moz-range-thumb {
     border-radius: 10px;
 }
 
+/* product detail action buttons */
 .productAddToCartButton{
     width: 80%;
     background-color: var(--primary-Text-Color);
@@ -736,8 +749,7 @@ input[type="range"]::-moz-range-thumb {
     transition: 0.3s;
 }
 
-/*============================================*/
-/* HERE IS ALLES VOOR DE ABOUT US PAGE*/
+/* contact page background and page area */
 .contactPage {
     background-color: var(--background-color-dark);
     border-top: 2px solid rgb(53, 53, 53);
@@ -750,6 +762,7 @@ input[type="range"]::-moz-range-thumb {
     padding-bottom: 70px;
 }
 
+/* contact page title and intro text */
 .contactTitle {
     text-align: center;
     margin-bottom: 35px;
@@ -771,6 +784,7 @@ input[type="range"]::-moz-range-thumb {
     margin: 0 auto;
 }
 
+/* contact form fields and submit button */
 .contactForm {
     width: 100%;
 }
@@ -813,7 +827,7 @@ input[type="range"]::-moz-range-thumb {
 
 .contactInputContainer textarea {
     height: 120px;
-    resize: vertical;
+    resize: vertical; /* this makes it so the inputerea can only go higher but not sideways*/
 }
 
 .contactButton {
@@ -834,6 +848,7 @@ input[type="range"]::-moz-range-thumb {
     transition: 0.3s;
 }
 
+/* google map embed on the contact page */
 .mapContainer {
     margin-top: 55px;
     border: 1px solid rgb(53, 53, 53);
@@ -847,6 +862,7 @@ input[type="range"]::-moz-range-thumb {
     border: none;
 }
 
+/* extra contact info block if it is used later */
 .contactInfo {
     display: flex;
     align-items: center;
@@ -859,7 +875,13 @@ input[type="range"]::-moz-range-thumb {
     width: 45%;
 }
 
-.contactInfoTitle,
+.contactInfoTitle{
+    color: var(--primary-Text-Color);
+    font-family: 'Inter';
+    font-size: 10px;
+    font-weight: 700;
+    margin-bottom: 13px;
+}
 .contactInfoLabel {
     color: var(--primary-Text-Color);
     font-family: 'Inter';
@@ -889,9 +911,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 
-/* ============================================================
- RESPONSIVE DESIGNING
-   ============================================================ */
+/* responsive layout for tablets and small screens */
 
 @media (max-width: 768px) {
     html {
@@ -929,8 +949,8 @@ input[type="range"]::-moz-range-thumb {
     .productGridItem,
     .productPrice,
     .productContainerRight {
-        min-width: 0;
-    }
+        min-width: 0; /*this is so that the element can shrink to fit the contenct this also makes it so there is no scrollbar on the bottom of the screen*/
+    }                 /* We call this on each selector that is a flex item*/
 
     .titleHero,
     .extraTextHero,
@@ -946,7 +966,7 @@ input[type="range"]::-moz-range-thumb {
         overflow-wrap: break-word;
     }
 
-    /* HEADER */
+    /* responsive header layout */
     .containerHeader {
         flex-direction: column;
         align-items: center;
@@ -964,7 +984,7 @@ input[type="range"]::-moz-range-thumb {
     }
 
     .navListHeader {
-        flex-wrap: wrap;
+        flex-wrap: wrap; /* if theres not enought space go down*/
         gap: 12px 18px;
         justify-content: center;
         width: 100%;
@@ -978,26 +998,14 @@ input[type="range"]::-moz-range-thumb {
         justify-content: center;
     }
 
-    /* HOME HERO */
+    /* responsive home hero layout */
     .hero {
         position: relative;
         min-height: 620px;
         height: auto;
         background-size: cover;
-        background-position: center right;
-        overflow: hidden;
-    }
-
-    .hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.35),
-            rgba(0, 0, 0, 0.86)
-        );
-        z-index: 0;
+        background-position: center right; /* place the background in the center right */
+        overflow: hidden; /* hides if something is overflowing*/
     }
 
     .infoHeroContainer {
@@ -1050,7 +1058,7 @@ input[type="range"]::-moz-range-thumb {
         text-align: center;
     }
 
-    /* FEATURED BUILDS */
+    /* responsive featured builds layout */
     .featuredTextTitle {
         margin: 24px 20px 18px;
         font-size: 19px;
@@ -1059,7 +1067,7 @@ input[type="range"]::-moz-range-thumb {
     .featuredTextExtra {
         flex-direction: column;
         gap: 10px;
-        line-height: 1.6;
+        line-height: 1.7;
     }
 
     .featuredTextLink a {
@@ -1099,14 +1107,14 @@ input[type="range"]::-moz-range-thumb {
         right: 20px;
         bottom: 24px;
         font-size: 13px;
-        line-height: 1.5;
+        line-height: 1.7;
     }
 
     .featuredPhotoLeft p br {
         display: none;
     }
 
-    /* FOOTER */
+    /* responsive footer layout */
     .gridContainerFooter {
         grid-template-columns: 1fr 1fr;
         gap: 28px 18px;
@@ -1120,7 +1128,7 @@ input[type="range"]::-moz-range-thumb {
 
 
 
-    /* COMPONENTS PAGE */
+    /* responsive components page layout */
     .hardwareFilterCategoryContainer {
         padding: 18px 20px;
     }
@@ -1131,12 +1139,15 @@ input[type="range"]::-moz-range-thumb {
     }
 
     .hardwareFilterCategoryContainer button {
-        flex: 1 1 145px;
+        flex: 1 1 145px; /* flex grow = 1, flex shrink = 1, flex basis = 145px */
+                        /* flex grow = 1 == if there is space grow */
+                        /* flex shrink = 1 == if there is not enough space shrink */
+                        /* flex basis = 145px == the start size of the items*/
         padding-inline: 12px;
         min-height: 38px;
     }
 
-    .catalogBar h3 {
+    .catalogBar h1 {
         font-size: 24px;
         padding: 20px;
     }
@@ -1205,11 +1216,10 @@ input[type="range"]::-moz-range-thumb {
     }
 
     .productPrice p {
-        flex: 1 1 auto;
+        flex: 1 1 auto; /* same thing grow if space shrink if no space starting is auto*/
         font-size: 20px;
         min-width: 0;
         margin-left: 0;
-        white-space: nowrap; /* zorgt dat tekst niet afbreekt en gewone lengte blijft*/
     }
 
     .productPrice {
@@ -1223,7 +1233,6 @@ input[type="range"]::-moz-range-thumb {
         height: 38px;
         margin-right: 0;
         padding: 8px;
-        object-fit: contain;
     }
 
     .productPrice a {
@@ -1232,7 +1241,7 @@ input[type="range"]::-moz-range-thumb {
         justify-content: center;
     }
 
-    /* SINGLE PRODUCT PAGE */
+    /* responsive single product page layout */
     .productPage {
         flex-direction: column;
         min-height: auto;
@@ -1262,7 +1271,7 @@ input[type="range"]::-moz-range-thumb {
     }
 
     .productDescriptionPriceContainer {
-        flex-wrap: wrap;
+        flex-wrap: wrap; /* again if not enough place go down*/
         align-items: baseline;
         gap: 8px 12px;
     }
@@ -1294,7 +1303,6 @@ input[type="range"]::-moz-range-thumb {
 
     .hero {
         min-height: 600px;
-        background-position: 68% center;
     }
 
     .titleHeroContainer {
@@ -1346,15 +1354,7 @@ input[type="range"]::-moz-range-thumb {
     }
 }
 
-/* ============================================================
-   RESPONSIVE ABOUT CONTACT PAGE
-   ============================================================ */
-
-@media (max-width: 900px) {
-    .contactUs {
-        width: 72%;
-    }
-}
+/* responsive contact page layout */
 
 @media (max-width: 650px) {
     .contactUs {
@@ -1401,9 +1401,9 @@ input[type="range"]::-moz-range-thumb {
     }
 }
 
-/* nog kleiner */
+/* extra small screen layout fixes */
 @media (max-width: 450px) {
     .catalogBar{
-        flex-direction: column;
+        flex-direction: column; /* for the search bar*/
     }
 }
